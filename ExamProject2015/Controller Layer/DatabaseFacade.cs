@@ -73,7 +73,7 @@ namespace ExamProject2015
             }
             catch (Exception ex)
             {
-
+                errormsg = "Forkert brugernavn eller password";
             }
             finally
             {
@@ -88,6 +88,11 @@ namespace ExamProject2015
             }
 
             return Authenticate;
+        }
+
+        public string PrintErrorMsg()
+        {
+            return errormsg;
         }
     }
 }

@@ -18,7 +18,14 @@ namespace ExamProject2015
 
         protected void btn_Login_Click(object sender, EventArgs e)
         {
-            
+            if (_cnt.Login(txtb_Username.Text, txtb_Password.Text) == true)
+            {
+                lbl_msg.Text = "Login Succesful";
+            }
+            else
+            {
+                lbl_msg.Text = "Login Failed: " + _cnt.PrintMsg();
+            }
         }
     }
 }
