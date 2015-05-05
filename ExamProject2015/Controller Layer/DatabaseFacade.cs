@@ -34,6 +34,7 @@ namespace ExamProject2015
             catch (Exception ex)
             {
                 errormsg = "No Connection to server";
+                return false;
             }
 
             try
@@ -65,9 +66,9 @@ namespace ExamProject2015
 
                 int Auth = Convert.ToInt32(cmd.Parameters["@Authenticated"].Value);
                 if (Auth == 0)
-                    auth = false;
+                    Authenticate = false;
                 else
-                    auth = true;
+                    Authenticate = true;
 
                 PrivLevel = Convert.ToInt32(cmd.Parameters["@PrivLevel"].Value);
             }
