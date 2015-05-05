@@ -22,7 +22,7 @@
             <asp:TextBox ID="txtb_Password" runat="server"></asp:TextBox>
             </p>
         <p>
-            <asp:Button ID="btn_Login" runat="server" Text="Login" />
+            <asp:Button ID="btn_Login" runat="server" Text="Login" OnClick="btn_Login_Click" />
             </p>
             </form>
 </body>

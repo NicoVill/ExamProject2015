@@ -7,18 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace ExamProject2015
 {
-    public partial class FrontPage : System.Web.UI.Page
+    public partial class MainPage : System.Web.UI.Page
     {
-        MainController _cnt = new MainController();
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void btn_Login_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
