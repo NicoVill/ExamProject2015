@@ -65,16 +65,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FrontPage.aspx" />
+    <Content Include="U.I. Layer\FrontPage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrontPage.aspx.cs">
+    <Compile Include="U.I. Layer\FrontPage.aspx.cs">
       <DependentUpon>FrontPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrontPage.aspx.designer.cs">
+    <Compile Include="U.I. Layer\FrontPage.aspx.designer.cs">
       <DependentUpon>FrontPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -84,6 +84,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controller Layer\" />
+    <Folder Include="Model Layer\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
