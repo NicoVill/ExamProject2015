@@ -21,6 +21,9 @@
 &nbsp;&nbsp;
             <asp:TextBox ID="txtb_Password" runat="server"></asp:TextBox>
             </p>
+        <p>
+            <asp:Button ID="btn_Login" runat="server" Text="Login" />
+            </p>
             </form>
 </body>
 </html>
