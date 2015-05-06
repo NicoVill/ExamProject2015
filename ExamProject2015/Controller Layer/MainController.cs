@@ -9,6 +9,7 @@ namespace ExamProject2015
     public class MainController
     {
         DatabaseFacade _dbf = new DatabaseFacade();
+        
 
         public bool Login (string usn, string pass)
         {
@@ -19,6 +20,11 @@ namespace ExamProject2015
         public string PrintMsg()
         {
             return _dbf.PrintErrorMsg();
+        }
+
+        public void UploadFile()
+        {
+            _dbf.FileUploadMethod();
         }
     }
 }

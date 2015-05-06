@@ -11,6 +11,9 @@ namespace ExamProject2015
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            MainController _cnt = new MainController();
+
+
 
         }
     }
