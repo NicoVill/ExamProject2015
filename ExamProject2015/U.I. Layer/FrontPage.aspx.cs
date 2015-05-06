@@ -21,6 +21,7 @@ namespace ExamProject2015
             if (_cnt.Login(txtb_Username.Text, txtb_Password.Text) == true)
             {
                 lbl_msg.Text = "Login Succesful";
+                Response.Redirect("UploadPage.aspx");
             }
             else
             {

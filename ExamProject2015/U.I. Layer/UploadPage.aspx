@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:FileUpload ID="ele_FileUpload" runat="server" />
+        <asp:FileUpload ID="FileUpload1" runat="server" />
         <asp:Button ID="btn_Upload" runat="server" OnClick="Upload" Text="Upload" />
     <div>
     
@@ -16,12 +16,16 @@
             <Columns>
                 <asp:BoundField DataField="Name" HeaderText="File Name" />
                 <asp:TemplateField ItemStyle-HorizontalAlign="Center">
-                    <ItemTemplate>
+                   <%-- <ItemTemplate>
                         <asp:LinkButton ID="lnkDownload" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="DownloadFile" Text="Download"></asp:LinkButton>
-                    </ItemTemplate>
+                    </ItemTemplate>--%>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+    
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <br />
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
     
     </div>
     </form>

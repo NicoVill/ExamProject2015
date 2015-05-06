@@ -22,14 +22,14 @@ namespace ExamProject2015
             return _dbf.PrintErrorMsg();
         }
 
-        public void UploadFile()
-        {
-            _dbf.FileUploadMethod();
-        }
+        //public void UploadFile()
+        //{
+        //    _dbf.FileUploadMethod();
+        //}
 
-        public void DownloadFile()
-        {
-            _dbf.DownloadFileMethod();
-        }
+        //public void DownloadFile()
+        //{
+        //    _dbf.DownloadFileMethod();
+        //}
     }
 }

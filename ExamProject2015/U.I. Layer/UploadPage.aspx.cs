@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace ExamProject2015
 {
@@ -15,6 +16,15 @@ namespace ExamProject2015
 
 
 
+        }
+
+        protected void Upload(object sender, EventArgs e)
+        {
+            if (FileUpload1.PostedFile != null)
+            {
+                Label1.Text = FileUpload1.PostedFile.FileName;
+                Label2.Text = FileUpload1.FileName;
+            }
         }
     }
 }
