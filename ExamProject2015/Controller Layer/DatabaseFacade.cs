@@ -10,7 +10,7 @@ using System.IO;
 
 namespace ExamProject2015
 {
-    public class DatabaseFacade
+    protected class DatabaseFacade
     {
         public string username { get; set; }
         public string password { get; set; }

@@ -26,5 +26,10 @@ namespace ExamProject2015
         {
             _dbf.FileUploadMethod();
         }
+
+        public void DownloadFile()
+        {
+            _dbf.DownloadFileMethod();
+        }
     }
 }
