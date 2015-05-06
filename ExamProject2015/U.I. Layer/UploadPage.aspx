@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
         <asp:FileUpload ID="FileUpload1" runat="server" />
         <asp:Button ID="btn_Upload" runat="server" OnClick="Upload" Text="Upload" />
+        <br />
+        <asp:TextBox ID="txtb_FileName" runat="server"></asp:TextBox>
     <div>
     
         <asp:GridView ID="GridView" runat="server" AlternatingRowStyle-BackColor="White" AlternatingRowStyle-ForeColor="#000" AutoGenerateColumns="false" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" RowStyle-BackColor="#A1DCF2">

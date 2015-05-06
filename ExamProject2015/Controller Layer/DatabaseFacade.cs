@@ -98,41 +98,41 @@ namespace ExamProject2015
             return errormsg;
         }
 
-        //public void FileUploadMethod()
-        //{
+        public void FileUploadMethod(string fn, string fc, Stream fs, string path)
+        {
 
 
-        //    string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
-        //    string contentType = FileUpload1.PostedFile.ContentType;
-        //    using (Stream fs = FileUpload1.PostedFile.InputStream)
-        //    {
-        //        using (BinaryReader br = new BinaryReader(fs))
-        //        {
-        //            byte[] bytes = br.ReadBytes((Int32)fs.Length);
+            string filename = Path.GetFileName(fn);
+            string contentType = fc;
+            using (fs)
+            {
+                using (BinaryReader br = new BinaryReader(fs))
+                {
+                    byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
-        //            using (SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;"))
-        //            {
-                        
-        //                string query = "if not exists (select * from FileUploadTest Where Name = @Name)";
+                    using (SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;"))
+                    {
 
-        //                SqlCommand cmd = new SqlCommand("UploadFile", con);
-        //                cmd.CommandType = CommandType.StoredProcedure;
-        //                {
+                        string query = "if not exists (select * from FileUploadTest Where Name = @Name)";
 
-        //                    cmd.Connection = con;
+                        SqlCommand cmd = new SqlCommand("UploadFile", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        {
 
-        //                    cmd.Parameters.AddWithValue("@Name", filename);
-        //                    cmd.Parameters.AddWithValue("@ContentType", contentType);
-        //                    cmd.Parameters.AddWithValue("@Data", bytes);
-        //                    con.Open();
-        //                    cmd.ExecuteNonQuery();
-        //                    con.Close();
-        //                }
-        //            }
-        //        }
-        //    }
-        //    System.Web.HttpContext.Current.Response.Redirect(Request.Url.AbsoluteUri);
-        //}
+                            cmd.Connection = con;
+
+                            cmd.Parameters.AddWithValue("@Name", filename);
+                            cmd.Parameters.AddWithValue("@ContentType", contentType);
+                            cmd.Parameters.AddWithValue("@Data", bytes);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+                    }
+                }
+            }
+            //System.Web.HttpContext.Current.Response.Redirect(Request.Url.AbsoluteUri);
+        }
 
         //public void DownloadFileMethod()
         //{

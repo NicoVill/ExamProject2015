@@ -20,11 +20,40 @@ namespace ExamProject2015
 
         protected void Upload(object sender, EventArgs e)
         {
-            if (FileUpload1.PostedFile != null)
+
+            string a = HttpRuntime.AppDomainAppPath;
+
+            string[] b = a.Split('\\');
+
+            string c = "";
+            for (int i = 0; i < (b.Count() - 3); i++)
             {
-                Label1.Text = FileUpload1.PostedFile.FileName;
-                Label2.Text = FileUpload1.FileName;
+                c += b[i] + "\\";
             }
+            c += "tmp\\";
+
+            Label1.Text = c;
+
+            string Filename = FileUpload1.PostedFile.FileName;
+
+            c += Filename;
+
+            FileUpload1.SaveAs(c);
+
+
+
+
+
+
+
+            //string filename, contentType;
+            //Stream fs;
+            //if (FileUpload1.PostedFile != null)
+            //{
+            //    contentType = FileUpload1.PostedFile.ContentType;
+            //    filename = FileUpload1.PostedFile.FileName;
+            //    fs = FileUpload1.PostedFile.InputStream;
+            //}
         }
     }
 }

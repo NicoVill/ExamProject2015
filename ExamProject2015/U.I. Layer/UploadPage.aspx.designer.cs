@@ -40,6 +40,15 @@ namespace ExamProject2015 {
         protected global::System.Web.UI.WebControls.Button btn_Upload;
         
         /// <summary>
+        /// txtb_FileName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtb_FileName;
+        
+        /// <summary>
         /// GridView control.
         /// </summary>
         /// <remarks>
