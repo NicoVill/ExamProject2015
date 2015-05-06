@@ -68,12 +68,14 @@
     <Content Include="U.I. Layer\MainPage.aspx" />
     <Content Include="U.I. Layer\FrontPage.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="U.I. Layer\UploadPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller Layer\DatabaseFacade.cs" />
     <Compile Include="Controller Layer\MainController.cs" />
-    <Compile Include="Login.cs" />
+    <Compile Include="Model Layer\File.cs" />
+    <Compile Include="Model Layer\Login.cs" />
     <Compile Include="U.I. Layer\MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -92,10 +94,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="U.I. Layer\UploadPage.aspx.cs">
+      <DependentUpon>UploadPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="U.I. Layer\UploadPage.aspx.designer.cs">
+      <DependentUpon>UploadPage.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Model Layer\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
