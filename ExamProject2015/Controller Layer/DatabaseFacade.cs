@@ -98,11 +98,11 @@ namespace ExamProject2015
             return errormsg;
         }
 
-        public void FileUploadMethod(string fn, string fc, Stream fs, string path)
+        public void FileUploadMethod(string fn, string path, Stream fs, string fc)
         {
 
 
-            string filename = Path.GetFileName(fn);
+            string filename = fn;
             string contentType = fc;
             using (fs)
             {
@@ -113,7 +113,7 @@ namespace ExamProject2015
                     using (SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;"))
                     {
 
-                        string query = "if not exists (select * from FileUploadTest Where Name = @Name)";
+                        
 
                         SqlCommand cmd = new SqlCommand("UploadFile", con);
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -131,7 +131,7 @@ namespace ExamProject2015
                     }
                 }
             }
-            //System.Web.HttpContext.Current.Response.Redirect(Request.Url.AbsoluteUri);
+            System.Web.HttpContext.Current.Response.Redirect(Request.Url.AbsoluteUri);
         }
 
         //public void DownloadFileMethod()
@@ -145,7 +145,7 @@ namespace ExamProject2015
         //            new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;"))
             
         //    {
-        //        SqlCommand cmd = new SqlCommand("AddNewOffer", con);
+        //        SqlCommand cmd = new SqlCommand("DownloadFile", con);
         //        cmd.CommandType = CommandType.StoredProcedure;
                 
         //        cmd.Parameters.AddWithValue("@ID", ID);

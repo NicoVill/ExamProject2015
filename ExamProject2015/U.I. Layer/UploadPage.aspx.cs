@@ -10,9 +10,10 @@ namespace ExamProject2015
 {
     public partial class UploadPage : System.Web.UI.Page
     {
+        MainController _cnt = new MainController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            MainController _cnt = new MainController();
+
 
 
 
@@ -36,10 +37,43 @@ namespace ExamProject2015
 
             string Filename = FileUpload1.PostedFile.FileName;
 
-            c += Filename;
 
+            string pathToCheck = c + Filename;
+
+            string tempfileName = "";
+
+            if ( System.IO.File.Exists(c))
+            {
+                int counter = 2;
+
+                while (System.IO.File.Exists(c))
+                {
+                    tempfileName = counter.ToString() + Filename;
+
+                    pathToCheck = c + tempfileName;
+
+                    counter++;
+                }
+
+                Filename = tempfileName;
+
+                Label2.Text = "Der er allerede en fil med dette navn";
+            }
+            else
+            {
+                Label2.Text = "Filen blev uploaded";
+            }
+
+            c += txtb_FileName.Text;
+            Filename = txtb_FileName.Text;
             FileUpload1.SaveAs(c);
 
+            
+            Stream fs = FileUpload1.PostedFile.InputStream;
+            string FileContent = FileUpload1.PostedFile.ContentType;
+            
+
+            _cnt.UploadFile(Filename, c, fs, FileContent);
 
 
 
