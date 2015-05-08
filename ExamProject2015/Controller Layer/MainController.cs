@@ -23,11 +23,11 @@ namespace ExamProject2015
             return _dbf.PrintErrorMsg();
         }
 
-        public void UploadFile(string fn, string path, Stream fs, string fc)
+        public void UploadFile(string fn, string path, Stream fs, string fc, string gfn)
         {
             File _file = new File(fn, fc);
 
-            _dbf.FileUploadMethod(fn, path, fs, fc);
+            _dbf.FileUploadMethod(fn, path, fs, fc, gfn);
 
            if (System.IO.File.Exists(@path))
             {

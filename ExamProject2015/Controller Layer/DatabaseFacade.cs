@@ -98,10 +98,10 @@ namespace ExamProject2015
             return errormsg;
         }
 
-        public void FileUploadMethod(string fn, string path, Stream fs, string fc)
+        public void FileUploadMethod(string fn, string path, Stream fs, string fc, string gfn)
         {
 
-
+            string givingFilename = gfn;
             string filename = fn;
             string contentType = fc;
             using (fs)
@@ -121,6 +121,7 @@ namespace ExamProject2015
 
                             cmd.Connection = con;
 
+                            cmd.Parameters.AddWithValue("@GName", givingFilename);
                             cmd.Parameters.AddWithValue("@Name", filename);
                             cmd.Parameters.AddWithValue("@ContentType", contentType);
                             cmd.Parameters.AddWithValue("@Data", bytes);
@@ -172,5 +173,7 @@ namespace ExamProject2015
             System.Web.HttpContext.Current.Response.Flush();
             System.Web.HttpContext.Current.Response.End();
         }
+
+        public 
     }
 }

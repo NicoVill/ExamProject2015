@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace ExamProject2015
 {
@@ -15,22 +16,12 @@ namespace ExamProject2015
         MainController _cnt = new MainController();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!IsPostBack)
-            {
-                ViewGrid();
-            }
-
-
+            ViewGrid();
         }
 
         protected void Upload(object sender, EventArgs e)
         {
-
             UploadFile();
-
-
-
         }
 
         private void UploadFile()
@@ -72,7 +63,7 @@ namespace ExamProject2015
             }
 
             c += Filename;
-            Filename = txtb_FileName.Text;
+            string givingFilename = txtb_FileName.Text;
             FileUpload1.SaveAs(c);
 
 
@@ -80,25 +71,41 @@ namespace ExamProject2015
             string FileContent = FileUpload1.PostedFile.ContentType;
 
 
-            _cnt.UploadFile(Filename, c, fs, FileContent);
+            _cnt.UploadFile(Filename, c, fs, FileContent, givingFilename);
         }
 
         private void ViewGrid()
         {
-            using (
-                    SqlConnection con =
-                        new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;"))
+            SqlConnection conn = null;
+            SqlDataReader rdr = null;
+
+            try
             {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "select ID, Name from FileUploadTest";
-                    cmd.Connection = con;
-                    con.Open();
-                    GridView.DataSource = cmd.ExecuteReader();
-                    GridView.DataBind();
-                    con.Close();
-                }
+                conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("ViewFiles", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                GridView.DataSource = cmd.ExecuteReader();
+                GridView.DataBind();
             }
+            catch (Exception ex)
+            {
+            
+            Label1.Text += ex.Message;
+        }
+        finally
+        {
+            if (conn != null)
+            {
+                conn.Close();
+            }
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+        }
+            
         }
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
         {

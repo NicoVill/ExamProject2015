@@ -16,7 +16,8 @@
     
         <asp:GridView ID="GridView" runat="server" AlternatingRowStyle-BackColor="White" AlternatingRowStyle-ForeColor="#000" AutoGenerateColumns="false" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" RowStyle-BackColor="#A1DCF2" OnSelectedIndexChanged="GridView_SelectedIndexChanged">
             <Columns>
-                <asp:BoundField DataField="Name" HeaderText="File Name" />
+                <asp:BoundField DataField="GivenName" HeaderText="File Name" />
+                <asp:BoundField DataField="Name" HeaderText="Real File Name" />
                 <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                         <asp:LinkButton ID="lnkDownload" runat="server"  OnClick="DownloadFile" Text="Download" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
