@@ -183,5 +183,32 @@ namespace ExamProject2015
 
             return cmd;
         }
+
+
+
+        public List<Folders> GetDirDB(int ParentID = 0)
+        {
+            List<Folders> FolderRead = new List<Folders>();
+            SqlConnection con =
+                    new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("GetDir", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ParentID", ParentID));
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.HasRows && rdr.Read())
+            {
+                int ID = int.Parse(rdr["ID"].ToString());
+                string Name = rdr["Name"].ToString();
+
+
+                FolderRead.Add(new Folders(ID, Name));
+            }
+            con.Close();
+            con.Dispose();
+
+            return FolderRead;
+        }
     }
-}
+} 

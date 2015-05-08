@@ -75,6 +75,7 @@
     <Compile Include="Controller Layer\DatabaseFacade.cs" />
     <Compile Include="Controller Layer\MainController.cs" />
     <Compile Include="Model Layer\File.cs" />
+    <Compile Include="Model Layer\Folders.cs" />
     <Compile Include="Model Layer\Login.cs" />
     <Compile Include="U.I. Layer\MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>

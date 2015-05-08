@@ -49,5 +49,16 @@ namespace ExamProject2015
            return _dbf.ViewGrid();
         }
 
+        public List<Folders> GetDir(int ParentID = 0)
+        {
+            DatabaseFacade db = new DatabaseFacade();
+
+
+            return db.GetDirDB(ParentID);
+
+
+
+        }
+
     }
 }
