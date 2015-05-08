@@ -70,7 +70,7 @@ namespace ExamProject2015
             Stream fs = FileUpload1.PostedFile.InputStream;
             string FileContent = FileUpload1.PostedFile.ContentType;
             int size = FileUpload1.PostedFile.ContentLength / 1024;
-
+            //TEST
             Label2.Text = size.ToString() + "Kb";
 
             _cnt.UploadFile(Filename, c, fs, FileContent, givingFilename);
