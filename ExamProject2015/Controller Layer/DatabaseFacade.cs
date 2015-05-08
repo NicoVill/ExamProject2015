@@ -174,6 +174,14 @@ namespace ExamProject2015
             System.Web.HttpContext.Current.Response.End();
         }
 
-        public 
+        public SqlCommand ViewGrid ()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("ViewFiles", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return cmd;
+        }
     }
 }

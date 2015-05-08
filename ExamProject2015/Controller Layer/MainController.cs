@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ExamProject2015
 {
@@ -40,6 +42,11 @@ namespace ExamProject2015
         public void DownloadFile(int id)
         {
             _dbf.DownloadFileMethod(id);
+        }
+
+        public SqlCommand ViewGrid()
+        {
+           return _dbf.ViewGrid();
         }
 
     }

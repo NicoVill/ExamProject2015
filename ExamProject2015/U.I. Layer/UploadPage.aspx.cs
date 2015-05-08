@@ -69,7 +69,9 @@ namespace ExamProject2015
 
             Stream fs = FileUpload1.PostedFile.InputStream;
             string FileContent = FileUpload1.PostedFile.ContentType;
+            int size = FileUpload1.PostedFile.ContentLength / 1024;
 
+            Label2.Text = size.ToString() + "Kb";
 
             _cnt.UploadFile(Filename, c, fs, FileContent, givingFilename);
         }
@@ -81,12 +83,8 @@ namespace ExamProject2015
 
             try
             {
-                conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("ViewFiles", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                GridView.DataSource = cmd.ExecuteReader();
+                
+                GridView.DataSource = _cnt.ViewGrid().ExecuteReader();
                 GridView.DataBind();
             }
             catch (Exception ex)
