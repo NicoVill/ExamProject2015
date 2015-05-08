@@ -72,7 +72,7 @@ namespace ExamProject2015
             }
 
             c += Filename;
-            //Filename = txtb_FileName.Text;
+            Filename = txtb_FileName.Text;
             FileUpload1.SaveAs(c);
 
 
