@@ -10,6 +10,7 @@ namespace ExamProject2015
     {
         DatabaseFacade _dbf = new DatabaseFacade();
         
+        
 
         public bool Login (string usn, string pass)
         {
@@ -24,17 +25,22 @@ namespace ExamProject2015
 
         public void UploadFile(string fn, string path, Stream fs, string fc)
         {
+            File _file = new File(fn, fc);
+
             _dbf.FileUploadMethod(fn, path, fs, fc);
 
            if (System.IO.File.Exists(@path))
             {
                 System.IO.File.Delete(@path);
             }
+
+
         }
 
-        //public void DownloadFile()
-        //{
-        //    _dbf.DownloadFileMethod();
-        //}
+        public void DownloadFile(int id)
+        {
+            _dbf.DownloadFileMethod(id);
+        }
+
     }
 }

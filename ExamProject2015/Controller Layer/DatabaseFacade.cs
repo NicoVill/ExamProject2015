@@ -131,45 +131,46 @@ namespace ExamProject2015
                     }
                 }
             }
-            System.Web.HttpContext.Current.Response.Redirect(Request.Url.AbsoluteUri);
+            //System.Web.HttpContext.Current.Response.Redirect(Request.Url.AbsoluteUri);
         }
 
-        //public void DownloadFileMethod()
-        //{
-        //    int ID = int.Parse((sender as LinkButton).CommandArgument);
-        //    byte[] bytes;
-        //    string fileName, contentType;
+        public void DownloadFileMethod(int id)
+        {
+            int ID = id;
+            byte[] bytes;
+            string fileName, contentType;
 
-        //    using (
-        //        SqlConnection con =
-        //            new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;"))
+            using (
+                SqlConnection con =
+                    new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;"))
+            {
+                SqlCommand cmd = new SqlCommand("DownloadFile", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
             
-        //    {
-        //        SqlCommand cmd = new SqlCommand("DownloadFile", con);
-        //        cmd.CommandType = CommandType.StoredProcedure;
-                
-        //        cmd.Parameters.AddWithValue("@ID", ID);
-        //        cmd.Connection = con;
-        //        con.Open();
-        //        using (SqlDataReader sdr = cmd.ExecuteReader())
-        //        {
-        //            sdr.Read();
-        //            bytes = (byte[])sdr["Data"];
-        //            contentType = sdr["ContentType"].ToString();
-        //            fileName = sdr["Name"].ToString();
-        //        }
-        //        con.Close();
-        //    }
-        //    //}
-        //    System.Web.HttpContext.Current.Response.Clear();
-        //    System.Web.HttpContext.Current.Response.Buffer = true;
-        //    System.Web.HttpContext.Current.Response.Charset = "";
-        //    System.Web.HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        //    System.Web.HttpContext.Current.Response.ContentType = contentType;
-        //    System.Web.HttpContext.Current.Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
-        //    System.Web.HttpContext.Current.Response.BinaryWrite(bytes);
-        //    System.Web.HttpContext.Current.Response.Flush();
-        //    System.Web.HttpContext.Current.Response.End();
-        //}
+
+                cmd.Parameters.AddWithValue("@ID", ID);
+                cmd.Connection = con;
+                con.Open();
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    sdr.Read();
+                    bytes = (byte[])sdr["Data"];
+                    contentType = sdr["ContentType"].ToString();
+                    fileName = sdr["Name"].ToString();
+                }
+                con.Close();
+            }
+            
+            System.Web.HttpContext.Current.Response.Clear();
+            System.Web.HttpContext.Current.Response.Buffer = true;
+            System.Web.HttpContext.Current.Response.Charset = "";
+            System.Web.HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            System.Web.HttpContext.Current.Response.ContentType = contentType;
+            System.Web.HttpContext.Current.Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
+            System.Web.HttpContext.Current.Response.BinaryWrite(bytes);
+            System.Web.HttpContext.Current.Response.Flush();
+            System.Web.HttpContext.Current.Response.End();
+        }
     }
 }
