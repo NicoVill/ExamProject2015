@@ -6,6 +6,7 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace ExamProject2015
 {
     public class MainController
@@ -49,7 +50,7 @@ namespace ExamProject2015
            return _dbf.ViewGrid();
         }
 
-        public List<Folders> GetDir(int ParentID = 0)
+        public List<Model_Layer.Folders> GetDir(int ParentID = 0)
         {
             DatabaseFacade db = new DatabaseFacade();
 

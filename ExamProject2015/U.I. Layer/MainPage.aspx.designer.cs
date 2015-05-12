@@ -31,39 +31,39 @@ namespace ExamProject2015 {
         protected global::System.Web.UI.WebControls.DropDownList DropDownSchool;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// DropDownYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownYear;
         
         /// <summary>
-        /// DropDownList2 control.
+        /// DropDownClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownClass;
         
         /// <summary>
-        /// DropDownList3 control.
+        /// DropDownSubject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownSubject;
         
         /// <summary>
-        /// DropDownList4 control.
+        /// DropDownSubjectFolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownSubjectFolder;
     }
 }

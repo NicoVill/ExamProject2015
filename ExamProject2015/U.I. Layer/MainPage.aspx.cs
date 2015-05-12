@@ -13,13 +13,13 @@ namespace ExamProject2015
         {
             if (!IsPostBack)
             {
-                Controller c = new Controller();
+                MainController c = new MainController();
 
                 foreach (var item in c.GetDir(0))
                 {
                     DropDownSchool.Items.Add(new ListItem(item.Name, item.ID.ToString()));
                 }
-                DropDownList1.Enabled = false;
+                DropDownYear.Enabled = false;
             }
         }
 
@@ -27,73 +27,74 @@ namespace ExamProject2015
 
         protected void DropDownSchool_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList1.Enabled = true;
+            DropDownYear.Enabled = true;
             int ParentID = int.Parse(DropDownSchool.SelectedValue);
-            //DropDownList1.ClearSelection;
+            
 
-            Controller c = new Controller();
-
+            MainController   c = new MainController();
+            DropDownYear.Items.Clear();
             foreach (var item in c.GetDir(ParentID))
             {
-                DropDownList1.Items.Add(new ListItem(item.Name, item.ID.ToString()));
+                DropDownYear.Items.Add(new ListItem(item.Name, item.ID.ToString()));
             }
-            DropDownList2.Enabled = false;
+            DropDownClass.Enabled = false;
+            DropDownClass.ClearSelection();
 
 
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void DropDownYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList2.Enabled = true;
-            int ParentID = int.Parse(DropDownList1.SelectedValue);
-            //DropDownList1.ClearSelection;
+            DropDownClass.Enabled = true;
+            int ParentID = int.Parse(DropDownYear.SelectedValue);
+            
 
-            Controller c = new Controller();
-
+            MainController c = new MainController();
+            DropDownClass.Items.Clear();
             foreach (var item in c.GetDir(ParentID))
             {
-                DropDownList2.Items.Add(new ListItem(item.Name, item.ID.ToString()));
+                DropDownClass.Items.Add(new ListItem(item.Name, item.ID.ToString()));
             }
-            DropDownList3.Enabled = false;
-
+            DropDownSubject.Enabled = false;
+            
 
         }
 
-        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+        protected void DropDownClass_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList3.Enabled = true;
-            int ParentID = int.Parse(DropDownList2.SelectedValue);
-            //DropDownList1.ClearSelection;
+            DropDownSubject.Enabled = true;
+            int ParentID = int.Parse(DropDownClass.SelectedValue);
+            
 
-            Controller c = new Controller();
-
+            MainController   c = new MainController();
+            DropDownSubject.Items.Clear();
             foreach (var item in c.GetDir(ParentID))
             {
-                DropDownList3.Items.Add(new ListItem(item.Name, item.ID.ToString()));
+                DropDownSubject.Items.Add(new ListItem(item.Name, item.ID.ToString()));
             }
-            DropDownList4.Enabled = false;
+            DropDownSubjectFolder.Enabled = false;
 
 
         }
 
-        protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
+        protected void DropDownSubject_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList4.Enabled = true;
-            int ParentID = int.Parse(DropDownList3.SelectedValue);
-            //DropDownList1.ClearSelection;
+            DropDownSubjectFolder.Enabled = true;
+            int ParentID = int.Parse(DropDownSubject.SelectedValue);
+            DropDownSubjectFolder.Items.Clear();
 
-            Controller c = new Controller();
+            MainController c = new MainController();
 
             foreach (var item in c.GetDir(ParentID))
             {
-                DropDownList4.Items.Add(new ListItem(item.Name, item.ID.ToString()));
+                DropDownSubjectFolder.Items.Add(new ListItem(item.Name, item.ID.ToString()));
             }
 
 
 
         }
 
-        protected void DropDownList4_SelectedIndexChanged(object sender, EventArgs e)
+        protected void DropDownSubjectFolder_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -186,9 +186,9 @@ namespace ExamProject2015
 
 
 
-        public List<Folders> GetDirDB(int ParentID = 0)
+        public List<Model_Layer.Folders> GetDirDB(int ParentID = 0)
         {
-            List<Folders> FolderRead = new List<Folders>();
+            List<Model_Layer.Folders> FolderRead = new List<Model_Layer.Folders>();
             SqlConnection con =
                     new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
 
@@ -203,7 +203,7 @@ namespace ExamProject2015
                 string Name = rdr["Name"].ToString();
 
 
-                FolderRead.Add(new Folders(ID, Name));
+                FolderRead.Add(new Model_Layer.Folders(ID, Name));
             }
             con.Close();
             con.Dispose();
