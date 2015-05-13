@@ -19,6 +19,8 @@ namespace ExamProject2015
 
         public bool auth = false;
         private string errormsg;
+
+        
         public bool LogIn(string user, string pass)
         {
             bool Authenticate = false;
@@ -180,6 +182,8 @@ namespace ExamProject2015
             conn.Open();
             SqlCommand cmd = new SqlCommand("ViewFiles", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@ID", Model_Layer.Folders.getID());
 
             return cmd;
         }

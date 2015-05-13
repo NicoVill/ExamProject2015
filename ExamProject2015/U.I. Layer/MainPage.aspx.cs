@@ -30,7 +30,7 @@ namespace ExamProject2015
             DropDownYear.Enabled = true;
             int ParentID = int.Parse(DropDownSchool.SelectedValue);
             
-
+            
             MainController   c = new MainController();
             DropDownYear.Items.Clear();
             foreach (var item in c.GetDir(ParentID))
