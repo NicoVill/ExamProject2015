@@ -16,7 +16,7 @@ namespace ExamProject2015
         MainController _cnt = new MainController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ViewGrid();
+            //ViewGrid();
         }
 
         protected void Upload(object sender, EventArgs e)
@@ -76,35 +76,35 @@ namespace ExamProject2015
             _cnt.UploadFile(Filename, c, fs, FileContent, givingFilename);
         }
 
-        private void ViewGrid()
-        {
-            SqlConnection conn = null;
-            SqlDataReader rdr = null;
+        //private void ViewGrid()
+        //{
+        //    SqlConnection conn = null;
+        //    SqlDataReader rdr = null;
 
-            try
-            {
+        //    try
+        //    {
                 
-                GridView.DataSource = _cnt.ViewGrid().ExecuteReader();
-                GridView.DataBind();
-            }
-            catch (Exception ex)
-            {
+        //        GridView.DataSource = _cnt.ViewGrid().ExecuteReader();
+        //        GridView.DataBind();
+        //    }
+        //    catch (Exception ex)
+        //    {
             
-            Label1.Text += ex.Message;
-        }
-        finally
-        {
-            if (conn != null)
-            {
-                conn.Close();
-            }
-            if (rdr != null)
-            {
-                rdr.Close();
-            }
-        }
+        //    Label1.Text += ex.Message;
+        //}
+        //finally
+        //{
+        //    if (conn != null)
+        //    {
+        //        conn.Close();
+        //    }
+        //    if (rdr != null)
+        //    {
+        //        rdr.Close();
+        //    }
+        //}
             
-        }
+        //}
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
         {
 

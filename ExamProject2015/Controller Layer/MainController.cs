@@ -45,9 +45,9 @@ namespace ExamProject2015
             _dbf.DownloadFileMethod(id);
         }
 
-        public SqlCommand ViewGrid()
+        public SqlCommand ViewGrid(int ID)
         {
-           return _dbf.ViewGrid();
+           return _dbf.ViewGrid(ID);
         }
 
         public List<Model_Layer.Folders> GetDir(int ParentID = 0)

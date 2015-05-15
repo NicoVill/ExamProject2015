@@ -17,10 +17,10 @@ namespace ExamProject2015.Model_Layer
             this.Name = Name;
         }
 
-        static public int getID()
-        {
-            return ID;
-        }
+        //static public int getID()
+        //{
+        //    return 
+        //}
 
 
     }

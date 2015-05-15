@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
 
 namespace ExamProject2015
 {
     public partial class MainPage : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,9 +24,13 @@ namespace ExamProject2015
                     DropDownSchool.Items.Add(new ListItem(item.Name, item.ID.ToString()));
                 }
                 DropDownYear.Enabled = false;
-            }
-        }
 
+                
+
+            }
+
+            //int ParentID;
+        }
 
 
         protected void DropDownSchool_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,11 +44,15 @@ namespace ExamProject2015
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownYear.Items.Add(new ListItem(item.Name, item.ID.ToString()));
+
+                ViewGrid(item.ID);
+
+                Label1.Text = item.ID.ToString();
             }
             DropDownClass.Enabled = false;
             DropDownClass.ClearSelection();
 
-
+            Label2.Text = ParentID.ToString();
         }
 
         protected void DropDownYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,10 +66,14 @@ namespace ExamProject2015
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownClass.Items.Add(new ListItem(item.Name, item.ID.ToString()));
+
+                ViewGrid(item.ID);
+
+                Label1.Text = item.ID.ToString();
             }
             DropDownSubject.Enabled = false;
-            
 
+            Label2.Text = ParentID.ToString();
         }
 
         protected void DropDownClass_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,10 +87,14 @@ namespace ExamProject2015
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownSubject.Items.Add(new ListItem(item.Name, item.ID.ToString()));
+
+                ViewGrid(item.ID);
+
+                Label1.Text = item.ID.ToString();
             }
             DropDownSubjectFolder.Enabled = false;
 
-
+            Label2.Text = ParentID.ToString();
         }
 
         protected void DropDownSubject_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,15 +108,76 @@ namespace ExamProject2015
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownSubjectFolder.Items.Add(new ListItem(item.Name, item.ID.ToString()));
+
+                ViewGrid(item.ID);
+
+                Label1.Text = item.ID.ToString();
             }
 
+            
 
+            Label2.Text = ParentID.ToString();
 
+        }
+
+        protected void DownloadFile(object sender, EventArgs e)
+        {
+            MainController _cnt = new MainController();
+
+            int ID = int.Parse((sender as LinkButton).CommandArgument);
+
+            Label1.Text = ID.ToString();
+
+            _cnt.DownloadFile(ID);
         }
 
         protected void DropDownSubjectFolder_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void ViewGrid(int ID)
+        {
+            SqlConnection conn = null;
+            SqlDataReader rdr = null;
+            MainController _cnt = new MainController();
+            try
+            {
+
+                GridView.DataSource = _cnt.ViewGrid(ID).ExecuteReader();
+                GridView.DataBind();
+            }
+            catch (Exception ex)
+            {
+
+                Label1.Text += ex.Message;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+            }
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //Label1.Text = Model_Layer.Folders.getID().ToString();
+
+            
+        }
+
+        protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
