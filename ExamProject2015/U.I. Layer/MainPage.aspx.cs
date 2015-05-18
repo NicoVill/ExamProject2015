@@ -15,13 +15,18 @@ namespace ExamProject2015
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+
+
             Response.Write("<p> Session ID: " + Model_Layer.SessionData.SessionID);
             //Response.Write("<p> Folder ID: " + Model_Layer.SessionData.LatestFolderID);
-            Model_Layer.SessionData.LatestFolderID = 0;
-            Response.Write(Model_Layer.SessionData.usrName);
+            
+            Response.Write("<p>" + Model_Layer.SessionData.usrName);
             //Response.Write("<p> Folder ID: " + Model_Layer.SessionData.LatestFolderID);
             if (!IsPostBack)
             {
+                Model_Layer.SessionData.LatestFolderID = 0;
+                DropDownSchool.Items.Add(new ListItem("Vælg Skole", null));
                 MainController c = new MainController();
 
                 foreach (var item in c.GetDir(0))
@@ -40,18 +45,23 @@ namespace ExamProject2015
 
         protected void DropDownSchool_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownYear.Enabled = true;
             int ParentID = int.Parse(DropDownSchool.SelectedValue);
-            DropDownSchool.Items.Add(new ListItem("Choose School", null ));
+            
+            DropDownYear.Enabled = true;
             
             MainController   c = new MainController();
             DropDownYear.Items.Clear();
+            DropDownYear.Items.Add(new ListItem("Vælg Årgang", ParentID.ToString()));
+
+            ViewGrid(ParentID);
+            Model_Layer.SessionData.LatestFolderID = ParentID;
+
+
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownYear.Items.Add(new ListItem(item.Name, item.ID.ToString()));
 
-                ViewGrid(item.ID);
-                Model_Layer.SessionData.LatestFolderID = item.ID;
+                
                 Label1.Text = item.ID.ToString();
             }
             DropDownClass.Enabled = false;
@@ -65,16 +75,20 @@ namespace ExamProject2015
             DropDownClass.Enabled = true;
             int ParentID = int.Parse(DropDownYear.SelectedValue);
 
-            DropDownSchool.Items.Add(new ListItem("Vælg Årgang", null));
+            
 
             MainController c = new MainController();
             DropDownClass.Items.Clear();
+            DropDownClass.Items.Add(new ListItem("Vælg Klasse", ParentID.ToString()));
+
+            ViewGrid(ParentID);
+            Model_Layer.SessionData.LatestFolderID = ParentID;
+
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownClass.Items.Add(new ListItem(item.Name, item.ID.ToString()));
 
-                ViewGrid(item.ID);
-                Model_Layer.SessionData.LatestFolderID = item.ID;
+                
                 Label1.Text = item.ID.ToString();
             }
             DropDownSubject.Enabled = false;
@@ -86,15 +100,19 @@ namespace ExamProject2015
         {
             DropDownSubject.Enabled = true;
             int ParentID = int.Parse(DropDownClass.SelectedValue);
-            DropDownSchool.Items.Add(new ListItem("Vælg Klasse", null));
+            
 
             MainController   c = new MainController();
             DropDownSubject.Items.Clear();
+            DropDownSubject.Items.Add(new ListItem("Vælg Fag", ParentID.ToString()));
+
+            ViewGrid(ParentID);
+            Model_Layer.SessionData.LatestFolderID = ParentID;
+
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownSubject.Items.Add(new ListItem(item.Name, item.ID.ToString()));
-                Model_Layer.SessionData.LatestFolderID = item.ID;
-                ViewGrid(item.ID);
+                
 
                 Label1.Text = item.ID.ToString();
             }
@@ -109,15 +127,17 @@ namespace ExamProject2015
             int ParentID = int.Parse(DropDownSubject.SelectedValue);
             DropDownSubjectFolder.Items.Clear();
 
-            DropDownSchool.Items.Add(new ListItem("Vælg Fag", null));
+            DropDownSubjectFolder.Items.Add(new ListItem("Vælg Mappe", ParentID.ToString()));
 
             MainController c = new MainController();
+
+            ViewGrid(ParentID);
+            Model_Layer.SessionData.LatestFolderID = ParentID;
 
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownSubjectFolder.Items.Add(new ListItem(item.Name, item.ID.ToString()));
-                Model_Layer.SessionData.LatestFolderID = item.ID;
-                ViewGrid(item.ID);
+                
 
                 Label1.Text = item.ID.ToString();
             }
@@ -186,6 +206,11 @@ namespace ExamProject2015
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btn_upload_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UploadPage.aspx");
         }
 
         

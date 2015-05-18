@@ -100,12 +100,13 @@ namespace ExamProject2015
             return errormsg;
         }
 
-        public void FileUploadMethod(string fn, string path, Stream fs, string fc, string gfn)
+        public void FileUploadMethod(string fn, string path, Stream fs, string fc, string gfn, int id)
         {
 
             string givingFilename = gfn;
             string filename = fn;
             string contentType = fc;
+            int FolderID = id;
             using (fs)
             {
                 using (BinaryReader br = new BinaryReader(fs))
@@ -127,6 +128,7 @@ namespace ExamProject2015
                             cmd.Parameters.AddWithValue("@Name", filename);
                             cmd.Parameters.AddWithValue("@ContentType", contentType);
                             cmd.Parameters.AddWithValue("@Data", bytes);
+                            cmd.Parameters.AddWithValue("@ID", id);
                             con.Open();
                             cmd.ExecuteNonQuery();
                             con.Close();

@@ -37,10 +37,23 @@ namespace ExamProject2015.Model_Layer
             }
             set
             {
-                System.Web.HttpContext.Current.Session["LatestFolderID"] = value;
+                System.Web.HttpContext.Current.Session["usrName"] = value;
             }
         }
 
-        public static string passWord { get; set; }
+        public static string privLevel
+        {
+            get
+            {
+                if (System.Web.HttpContext.Current.Session["privLevel"] != null)
+                    return (System.Web.HttpContext.Current.Session["PrivLevel"].ToString());
+                else
+                    return "No Username";
+            }
+            set
+            {
+                System.Web.HttpContext.Current.Session["PrivLevel"] = value;
+            }
+        }
     }
 }

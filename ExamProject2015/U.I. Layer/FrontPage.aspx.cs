@@ -22,6 +22,7 @@ namespace ExamProject2015
             {
                 Response.Write("<p> Session ID: " + Model_Layer.SessionData.SessionID);
                 Model_Layer.SessionData.usrName = txtb_Username.Text;
+                
                 lbl_msg.Text = "Login Succesful";
                 Response.Redirect("MainPage.aspx");
             }

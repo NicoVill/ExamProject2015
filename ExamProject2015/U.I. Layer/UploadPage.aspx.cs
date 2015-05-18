@@ -17,6 +17,7 @@ namespace ExamProject2015
         protected void Page_Load(object sender, EventArgs e)
         {
             //ViewGrid();
+            Response.Write(Model_Layer.SessionData.LatestFolderID);
         }
 
         protected void Upload(object sender, EventArgs e)
@@ -73,7 +74,7 @@ namespace ExamProject2015
             
             Label2.Text = size.ToString() + "Kb";
 
-            _cnt.UploadFile(Filename, c, fs, FileContent, givingFilename);
+            _cnt.UploadFile(Filename, c, fs, FileContent, givingFilename, Model_Layer.SessionData.LatestFolderID);
         }
 
         //private void ViewGrid()
