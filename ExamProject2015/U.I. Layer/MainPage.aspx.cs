@@ -15,6 +15,11 @@ namespace ExamProject2015
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Write("<p> Session ID: " + Model_Layer.SessionData.SessionID);
+            //Response.Write("<p> Folder ID: " + Model_Layer.SessionData.LatestFolderID);
+            Model_Layer.SessionData.LatestFolderID = 0;
+            Response.Write(Model_Layer.SessionData.usrName);
+            //Response.Write("<p> Folder ID: " + Model_Layer.SessionData.LatestFolderID);
             if (!IsPostBack)
             {
                 MainController c = new MainController();
@@ -37,7 +42,7 @@ namespace ExamProject2015
         {
             DropDownYear.Enabled = true;
             int ParentID = int.Parse(DropDownSchool.SelectedValue);
-            
+            DropDownSchool.Items.Add(new ListItem("Choose School", null ));
             
             MainController   c = new MainController();
             DropDownYear.Items.Clear();
@@ -46,7 +51,7 @@ namespace ExamProject2015
                 DropDownYear.Items.Add(new ListItem(item.Name, item.ID.ToString()));
 
                 ViewGrid(item.ID);
-
+                Model_Layer.SessionData.LatestFolderID = item.ID;
                 Label1.Text = item.ID.ToString();
             }
             DropDownClass.Enabled = false;
@@ -59,7 +64,8 @@ namespace ExamProject2015
         {
             DropDownClass.Enabled = true;
             int ParentID = int.Parse(DropDownYear.SelectedValue);
-            
+
+            DropDownSchool.Items.Add(new ListItem("Vælg Årgang", null));
 
             MainController c = new MainController();
             DropDownClass.Items.Clear();
@@ -68,7 +74,7 @@ namespace ExamProject2015
                 DropDownClass.Items.Add(new ListItem(item.Name, item.ID.ToString()));
 
                 ViewGrid(item.ID);
-
+                Model_Layer.SessionData.LatestFolderID = item.ID;
                 Label1.Text = item.ID.ToString();
             }
             DropDownSubject.Enabled = false;
@@ -80,14 +86,14 @@ namespace ExamProject2015
         {
             DropDownSubject.Enabled = true;
             int ParentID = int.Parse(DropDownClass.SelectedValue);
-            
+            DropDownSchool.Items.Add(new ListItem("Vælg Klasse", null));
 
             MainController   c = new MainController();
             DropDownSubject.Items.Clear();
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownSubject.Items.Add(new ListItem(item.Name, item.ID.ToString()));
-
+                Model_Layer.SessionData.LatestFolderID = item.ID;
                 ViewGrid(item.ID);
 
                 Label1.Text = item.ID.ToString();
@@ -103,12 +109,14 @@ namespace ExamProject2015
             int ParentID = int.Parse(DropDownSubject.SelectedValue);
             DropDownSubjectFolder.Items.Clear();
 
+            DropDownSchool.Items.Add(new ListItem("Vælg Fag", null));
+
             MainController c = new MainController();
 
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownSubjectFolder.Items.Add(new ListItem(item.Name, item.ID.ToString()));
-
+                Model_Layer.SessionData.LatestFolderID = item.ID;
                 ViewGrid(item.ID);
 
                 Label1.Text = item.ID.ToString();
@@ -123,8 +131,9 @@ namespace ExamProject2015
         protected void DownloadFile(object sender, EventArgs e)
         {
             MainController _cnt = new MainController();
-
             int ID = int.Parse((sender as LinkButton).CommandArgument);
+
+
 
             Label1.Text = ID.ToString();
 
@@ -133,7 +142,8 @@ namespace ExamProject2015
 
         protected void DropDownSubjectFolder_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            DropDownSchool.Items.Add(new ListItem("Vælg Mappe", null));
+            //Model_Layer.SessionData.LatestFolderID = item.ID;
         }
 
         private void ViewGrid(int ID)

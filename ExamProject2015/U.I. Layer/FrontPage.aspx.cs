@@ -20,8 +20,10 @@ namespace ExamProject2015
         {
             if (_cnt.Login(txtb_Username.Text, txtb_Password.Text) == true)
             {
+                Response.Write("<p> Session ID: " + Model_Layer.SessionData.SessionID);
+                Model_Layer.SessionData.usrName = txtb_Username.Text;
                 lbl_msg.Text = "Login Succesful";
-                Response.Redirect("UploadPage.aspx");
+                Response.Redirect("MainPage.aspx");
             }
             else
             {
