@@ -217,5 +217,35 @@ namespace ExamProject2015
 
             return FolderRead;
         }
+
+        public void CreateFolderDB(string Name, int ParentID)
+        {
+            SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("CreateFolder", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@Name", Name));
+            cmd.Parameters.Add(new SqlParameter("@ParentID", ParentID));
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+            con.Dispose();
+        }
+
+        public void RenameFolderDB(string Name, int ID)
+        {
+            SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("RenameFolder", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@Name", Name));
+            cmd.Parameters.Add(new SqlParameter("@ID", ID));
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+            con.Dispose();
+        }
     }
 } 

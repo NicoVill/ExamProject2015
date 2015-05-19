@@ -18,26 +18,19 @@
         Skole&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="DropDownSchool" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownSchool_SelectedIndexChanged">
         </asp:DropDownList>
         
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        
-        <br />
-
-        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Årgang <asp:DropDownList ID="DropDownYear" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownYear_SelectedIndexChanged">
         </asp:DropDownList>
 
-        <br />
-        <br />
+        &nbsp;&nbsp;&nbsp;
         Klasse&nbsp; <asp:DropDownList ID="DropDownClass" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownClass_SelectedIndexChanged">
         </asp:DropDownList>
 
-        <br />
-        <br />
+        &nbsp;&nbsp;&nbsp;
         Fag&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="DropDownSubject" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownSubject_SelectedIndexChanged">
         </asp:DropDownList>
 
-        <br />
-        <br />
+        &nbsp;&nbsp;&nbsp;
         Mappe
 
         <asp:DropDownList ID="DropDownSubjectFolder" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownSubjectFolder_SelectedIndexChanged">
@@ -62,6 +55,16 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <br />
+        Mappe Navn
+        <asp:TextBox ID="txtb_FolderName" runat="server"></asp:TextBox>
+        &nbsp;<asp:Button ID="btn_CreateFolder" runat="server" Text="Lav Mappe" OnClick="btn_CreateFolder_Click" />
+        <br />
+        Mappe Navn
+        <asp:TextBox ID="RenameFolderTxt" runat="server"></asp:TextBox>
+
+        <asp:Button ID="RenameFolderBtn" runat="server" Text="Rename Folder" OnClick="RenameFolderBtn_Click" />
+        <br />
     </form>
 </body>
 </html>

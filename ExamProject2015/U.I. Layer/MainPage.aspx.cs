@@ -19,9 +19,6 @@ namespace ExamProject2015
 
             Response.Write("<p>" + _cnt.getSessionData());
 
-
-            //Response.Write("<p> Session ID: " + Model_Layer.SessionData.SessionID);
-
             if (!IsPostBack)
             {
                 Model_Layer.SessionData.LatestFolderID = 0;
@@ -214,5 +211,17 @@ namespace ExamProject2015
         }
 
         
+
+        protected void btn_CreateFolder_Click(object sender, EventArgs e)
+        {
+            MainController c = new MainController();
+            c.CreateFolder(txtb_FolderName.Text, c.getLastFolderID());
+        }
+
+        protected void RenameFolderBtn_Click(object sender, EventArgs e)
+        {
+            MainController c = new MainController();
+            c.RenameFolder(RenameFolderTxt.Text, c.getLastFolderID());
+        }
     }
 }

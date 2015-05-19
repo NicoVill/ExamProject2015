@@ -34,7 +34,7 @@ namespace ExamProject2015
 
         public string getSessionData()
         {
-            return getSessionData();
+            return Model_Layer.SessionData.printData();
         }
 
         public int checkPrivLevel()
@@ -84,5 +84,20 @@ namespace ExamProject2015
 
         }
 
+        public void CreateFolder(string Name, int ParentID)
+        {           
+            _dbf.CreateFolderDB(Name, ParentID);
+        }
+
+        public int getLastFolderID()
+        {
+            return Model_Layer.SessionData.LatestFolderID;
+        }
+
+        public void RenameFolder(string Name, int ID)
+        {
+            DatabaseFacade db = new DatabaseFacade();
+            db.RenameFolderDB(Name, ID);
+        }
     }
 }
