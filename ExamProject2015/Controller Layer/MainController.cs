@@ -17,8 +17,17 @@ namespace ExamProject2015
 
         public bool Login (string usn, string pass)
         {
-            
-            return _dbf.LogIn(usn, pass);
+            if (_dbf.LogIn(usn, pass) == true)
+            {
+                return _dbf.LogIn(usn, pass);
+                Model_Layer.User usr = new Model_Layer.User(usn, _dbf.PrivLevel);
+                Model_Layer.SessionData.privLevel = _dbf.PrivLevel
+            }
+            else
+            {
+                return false;
+
+            }
         }
 
         public string PrintMsg()

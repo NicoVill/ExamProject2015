@@ -61,8 +61,9 @@ namespace ExamProject2015
 
                 SqlParameter paramRole = new SqlParameter("@PrivLevel", 0);
                 paramRole.Direction = ParameterDirection.Output;
+                
                 cmd.Parameters.Add(paramRole);
-                object test = cmd.Parameters["@PrivLevel"].Value;
+                object privLevel = cmd.Parameters["@PrivLevel"].Value;
 
                 //cmd.Parameters["@Authenticate"].Value = Authenticate;
 

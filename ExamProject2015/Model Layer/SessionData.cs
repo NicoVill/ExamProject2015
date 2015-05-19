@@ -41,14 +41,14 @@ namespace ExamProject2015.Model_Layer
             }
         }
 
-        public static string privLevel
+        public static int privLevel
         {
             get
             {
                 if (System.Web.HttpContext.Current.Session["privLevel"] != null)
-                    return (System.Web.HttpContext.Current.Session["PrivLevel"].ToString());
+                    return int.Parse((System.Web.HttpContext.Current.Session["PrivLevel"].ToString()));
                 else
-                    return "No Username";
+                    return -1;
             }
             set
             {

@@ -78,6 +78,7 @@
     <Compile Include="Model Layer\Folders.cs" />
     <Compile Include="Model Layer\Login.cs" />
     <Compile Include="Model Layer\SessionData.cs" />
+    <Compile Include="Model Layer\User.cs" />
     <Compile Include="U.I. Layer\MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
