@@ -46,7 +46,7 @@ namespace ExamProject2015.Model_Layer
             get
             {
                 if (System.Web.HttpContext.Current.Session["privLevel"] != null)
-                    return int.Parse((System.Web.HttpContext.Current.Session["PrivLevel"].ToString()));
+                    return int.Parse((System.Web.HttpContext.Current.Session["privLevel"].ToString()));
                 else
                     return -1;
             }
@@ -54,6 +54,23 @@ namespace ExamProject2015.Model_Layer
             {
                 System.Web.HttpContext.Current.Session["PrivLevel"] = value;
             }
+        }
+
+        public static string getPrivLevel ()
+        {
+            if (privLevel == 1)
+                return "Lærer";
+            else if (privLevel == 2)
+                return "Admin";
+            else if (privLevel == 3)
+                return "Elev";
+
+            return "Invalid Privilege Level";
+        }
+
+        public static string printData ()
+        {
+            return "User: " + usrName + " | " + getPrivLevel();
         }
     }
 }

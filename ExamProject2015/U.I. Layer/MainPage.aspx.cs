@@ -15,14 +15,13 @@ namespace ExamProject2015
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            MainController _cnt = new MainController();
+
+            Response.Write("<p>" + _cnt.getSessionData();
 
 
-            Response.Write("<p> Session ID: " + Model_Layer.SessionData.SessionID);
-            //Response.Write("<p> Folder ID: " + Model_Layer.SessionData.LatestFolderID);
-            
-            Response.Write("<p>" + Model_Layer.SessionData.usrName);
-            //Response.Write("<p> Folder ID: " + Model_Layer.SessionData.LatestFolderID);
+            //Response.Write("<p> Session ID: " + Model_Layer.SessionData.SessionID);
+
             if (!IsPostBack)
             {
                 Model_Layer.SessionData.LatestFolderID = 0;
@@ -33,13 +32,14 @@ namespace ExamProject2015
                 {
                     DropDownSchool.Items.Add(new ListItem(item.Name, item.ID.ToString()));
                 }
-                DropDownYear.Enabled = false;
-
-                
-
+                DropDownYear.Enabled = false;             
             }
-
-            //int ParentID;
+            
+            if (_cnt.checkPrivLevel() == 3)
+            {
+                btn_upload.Enabled = false;
+            }
+            
         }
 
 

@@ -19,9 +19,11 @@ namespace ExamProject2015
         {
             if (_dbf.LogIn(usn, pass) == true)
             {
-                return _dbf.LogIn(usn, pass);
                 Model_Layer.User usr = new Model_Layer.User(usn, _dbf.PrivLevel);
-                Model_Layer.SessionData.privLevel = _dbf.PrivLevel
+                Model_Layer.SessionData.privLevel = _dbf.PrivLevel;
+
+                return _dbf.LogIn(usn, pass);
+                
             }
             else
             {
@@ -29,6 +31,18 @@ namespace ExamProject2015
 
             }
         }
+
+        public string getSessionData()
+        {
+            return getSessionData();
+        }
+
+        public int checkPrivLevel()
+        {
+            return Model_Layer.SessionData.privLevel;
+        }
+
+        
 
         public string PrintMsg()
         {
