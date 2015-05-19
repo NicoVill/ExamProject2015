@@ -247,5 +247,20 @@ namespace ExamProject2015
             con.Close();
             con.Dispose();
         }
+
+        public void DeleteFolderDB(int ID)
+        {
+            SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("DeleteFolder", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ID", ID));
+
+            int ErrorMessage = cmd.ExecuteNonQuery();
+
+            con.Close();
+            con.Dispose();
+        }
     }
 } 

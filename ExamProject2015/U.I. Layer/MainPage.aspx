@@ -65,6 +65,8 @@
 
         <asp:Button ID="RenameFolderBtn" runat="server" Text="Rename Folder" OnClick="RenameFolderBtn_Click" />
         <br />
+        <asp:Button ID="btn_DeleteFolder" runat="server" Text="Delete Folder" OnClick="btn_DeleteFolder_Click" />
+        <br />
     </form>
 </body>
 </html>

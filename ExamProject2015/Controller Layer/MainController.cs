@@ -96,8 +96,14 @@ namespace ExamProject2015
 
         public void RenameFolder(string Name, int ID)
         {
-            DatabaseFacade db = new DatabaseFacade();
-            db.RenameFolderDB(Name, ID);
+            
+            _dbf.RenameFolderDB(Name, ID);
+        }
+
+        public void DeleteFolder(int ID)
+        {
+            
+            _dbf.DeleteFolderDB(ID);
         }
     }
 }

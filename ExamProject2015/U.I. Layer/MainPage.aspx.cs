@@ -223,5 +223,11 @@ namespace ExamProject2015
             MainController c = new MainController();
             c.RenameFolder(RenameFolderTxt.Text, c.getLastFolderID());
         }
+
+        protected void btn_DeleteFolder_Click(object sender, EventArgs e)
+        {
+            MainController c = new MainController();
+            c.DeleteFolder(c.getLastFolderID());
+        }
     }
 }
