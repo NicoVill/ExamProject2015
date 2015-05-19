@@ -214,8 +214,15 @@ namespace ExamProject2015
 
         protected void btn_CreateFolder_Click(object sender, EventArgs e)
         {
-            MainController c = new MainController();
-            c.CreateFolder(txtb_FolderName.Text, c.getLastFolderID());
+            if (txtb_FolderName.Text.Count() > 0)
+            {
+                MainController c = new MainController();
+                c.CreateFolder(txtb_FolderName.Text, c.getLastFolderID());
+            }
+            else
+            {
+                Label2.Text = "Skriv et navn";
+            }
         }
 
         protected void RenameFolderBtn_Click(object sender, EventArgs e)
