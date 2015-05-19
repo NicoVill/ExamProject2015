@@ -17,7 +17,7 @@ namespace ExamProject2015
         {
             MainController _cnt = new MainController();
 
-            Response.Write("<p>" + _cnt.getSessionData();
+            Response.Write("<p>" + _cnt.getSessionData());
 
 
             //Response.Write("<p> Session ID: " + Model_Layer.SessionData.SessionID);
