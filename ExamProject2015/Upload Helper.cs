@@ -26,6 +26,8 @@ namespace ExamProject2015
 
             c += "tmp\\";
 
+            newLocationString = c;
+
             return newLocationString;
         }
 

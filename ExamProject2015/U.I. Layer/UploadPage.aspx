@@ -49,7 +49,7 @@
         <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
     
     </div>
-    </form>
+   
 
 
           <asp:Label ID="UrlNameLabel" runat="server" Text="Name of Link"></asp:Label>
@@ -67,7 +67,7 @@
             <asp:Button ID="UrlBtn" runat="server" Text="Upload Link" OnClick="UrlBtn_Click" />
         
         
-
+     </form>
     <footer>footer</footer>
 </body>
 </html>
