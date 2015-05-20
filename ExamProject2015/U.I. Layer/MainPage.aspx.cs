@@ -34,7 +34,7 @@ namespace ExamProject2015
             
             if (_cnt.checkPrivLevel() == 3)
             {
-                UrlBtn.Enabled = false;
+                btn_upload.Enabled = false;
             }
             
         }
