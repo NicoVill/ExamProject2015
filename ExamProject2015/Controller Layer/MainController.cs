@@ -105,5 +105,10 @@ namespace ExamProject2015
             
             _dbf.DeleteFolderDB(ID);
         }
+
+        public void UploadLink(string Name, string Url)
+        {          
+            _dbf.UploadLinkDB(Name, Url);
+        }
     }
 }

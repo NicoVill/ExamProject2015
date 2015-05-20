@@ -67,6 +67,14 @@
         <br />
         <asp:Button ID="btn_DeleteFolder" runat="server" Text="Delete Folder" OnClick="btn_DeleteFolder_Click" />
         <br />
+        <br />
+        --&gt;
+        <asp:Label ID="UrlNameLabel" runat="server" Text="Name of Link"></asp:Label>
+        <asp:TextBox ID="UrlNameTxt" runat="server"></asp:TextBox>
+        <asp:Label ID="UrlLabel" runat="server" Text="Insert Url"></asp:Label>
+        <asp:TextBox ID="UrlTxt" runat="server"></asp:TextBox>
+        <asp:Button ID="UrlBtn" runat="server" OnClick="UrlBtn_Click" Text="Upload Link" />
+        <br />
     </form>
 </body>
 </html>

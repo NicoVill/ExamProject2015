@@ -227,14 +227,29 @@ namespace ExamProject2015
 
         protected void RenameFolderBtn_Click(object sender, EventArgs e)
         {
-            MainController c = new MainController();
-            c.RenameFolder(RenameFolderTxt.Text, c.getLastFolderID());
+            if (txtb_FolderName.Text.Count() > 0)
+            {
+                MainController c = new MainController();
+                c.RenameFolder(RenameFolderTxt.Text, c.getLastFolderID());
+            }
+            else
+            {
+                Label2.Text = "Skriv et navn";
+            }
+
+            
         }
 
         protected void btn_DeleteFolder_Click(object sender, EventArgs e)
         {
             MainController c = new MainController();
             c.DeleteFolder(c.getLastFolderID());
+        }
+
+        protected void UrlBtn_Click(object sender, EventArgs e)
+        {
+            Controller c = new Controller();
+            c.UploadLink(UrlNameTxt.Text, UrlTxt.Text);
         }
     }
 }

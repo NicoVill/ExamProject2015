@@ -18,18 +18,26 @@ namespace ExamProject2015
 
         protected void btn_Login_Click(object sender, EventArgs e)
         {
-            if (_cnt.Login(txtb_Username.Text, txtb_Password.Text) == true)
+            if (txtb_Username.Text.Count() > 0)
             {
-                Response.Write("<p> Session ID: " + Model_Layer.SessionData.SessionID);
-                Model_Layer.SessionData.usrName = txtb_Username.Text;
-                
-                lbl_msg.Text = "Login Succesful";
-                Response.Redirect("MainPage.aspx");
+                if (_cnt.Login(txtb_Username.Text, txtb_Password.Text) == true)
+                {
+                    Response.Write("<p> Session ID: " + Model_Layer.SessionData.SessionID);
+                    Model_Layer.SessionData.usrName = txtb_Username.Text;
+
+                    lbl_msg.Text = "Login Succesful";
+                    Response.Redirect("MainPage.aspx");
+                }
+                else
+                {
+                    lbl_msg.Text = "Login Failed: " + _cnt.PrintMsg();
+                }
             }
             else
             {
-                lbl_msg.Text = "Login Failed: " + _cnt.PrintMsg();
+                lbl_msg.Text = "Skriv et username";
             }
+            
         }
     }
 }

@@ -262,5 +262,20 @@ namespace ExamProject2015
             con.Close();
             con.Dispose();
         }
+
+        public void UploadLinkDB(string Name, string Url)
+        {
+            SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UploadLink", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@Name", Name));
+            cmd.Parameters.Add(new SqlParameter("@Url", Url));
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+            con.Dispose();
+        }
     }
 } 
