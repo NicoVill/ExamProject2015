@@ -65,6 +65,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Main.css" />
     <Content Include="U.I. Layer\MainPage.aspx" />
     <Content Include="U.I. Layer\FrontPage.aspx" />
     <Content Include="Global.asax" />
@@ -104,9 +105,11 @@
     <Compile Include="U.I. Layer\UploadPage.aspx.designer.cs">
       <DependentUpon>UploadPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Upload Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Helper\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,56 @@
+﻿body {
+	margin: 0;
+}
+
+header {
+	background: lightblue;
+	color: black;
+	padding: 15px 15px 0 15px;
+}
+
+header h1 {
+	margin: 0;
+    display: inline;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0 0 0 15;
+	display: inline;
+}
+
+nav ul li {
+	background: AntiqueWhite;
+	color: black;
+	display: inline-block;
+	list-style-type: none;
+	padding: 5px 15px; /*t, b, l, r*/
+}
+
+nav ul li a {
+	color: white;
+}
+
+#navbar {
+    margin: 0;
+    width: 25%
+    display inline;
+    float: left;
+    border-right-style: inset;
+    padding-right: 6px; 
+           
+}
+
+#section {
+    margin: 0px;
+    width: 75%;
+    float: right;
+    
+}
+
+footer {
+    background-color: antiquewhite;
+    color: black;
+	clear: both;
+    text-align: center;
+}

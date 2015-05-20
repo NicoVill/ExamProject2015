@@ -248,7 +248,7 @@ namespace ExamProject2015
 
         protected void UrlBtn_Click(object sender, EventArgs e)
         {
-            Controller c = new Controller();
+            MainController c = new MainController();
             c.UploadLink(UrlNameTxt.Text, UrlTxt.Text);
         }
     }

@@ -28,34 +28,16 @@ namespace ExamProject2015
         private void UploadFile()
         {
             string a = HttpRuntime.AppDomainAppPath;
-            string[] b = a.Split('\\');
-            string c = "";
-            for (int i = 0; i < (b.Count() - 3); i++)
-            {
-                c += b[i] + "\\";
-            }
-
-            c += "tmp\\";
-            Label1.Text = c;
+            
+            string uploadLocation = UploadHelper.createUploadLocationString(a);
             string Filename = FileUpload1.PostedFile.FileName;
-            string pathToCheck = c + Filename;
-            string tempfileName = "";
+            string pathToCheck = uploadLocation + Filename;
+            
 
-            if (System.IO.File.Exists(c))
-            {
-                int counter = 2;
+            UploadHelper.checkIfFIleExists(uploadLocation, Filename);
 
-                while (System.IO.File.Exists(c))
-                {
-                    tempfileName = counter.ToString() + Filename;
-
-                    pathToCheck = c + tempfileName;
-
-                    counter++;
-                }
-
-                Filename = tempfileName;
-
+            if (UploadHelper.checkIfFIleExists(uploadLocation, Filename) == false)
+            {               
                 Label2.Text = "Der er allerede en fil med dette navn";
             }
             else
@@ -63,49 +45,19 @@ namespace ExamProject2015
                 Label2.Text = "Filen blev uploaded";
             }
 
-            c += Filename;
+            uploadLocation += Filename;
             string givingFilename = txtb_FileName.Text;
-            FileUpload1.SaveAs(c);
+            FileUpload1.SaveAs(uploadLocation);
 
 
             Stream fs = FileUpload1.PostedFile.InputStream;
             string FileContent = FileUpload1.PostedFile.ContentType;
-            int size = FileUpload1.PostedFile.ContentLength / 1024;
-            
-            Label2.Text = size.ToString() + "Kb";
 
-            _cnt.UploadFile(Filename, c, fs, FileContent, givingFilename, Model_Layer.SessionData.LatestFolderID);
+            Label2.Text = UploadHelper.calcSize(FileUpload1.PostedFile.ContentLength);
+
+            _cnt.UploadFile(Filename, uploadLocation, fs, FileContent, givingFilename, Model_Layer.SessionData.LatestFolderID);
         }
 
-        //private void ViewGrid()
-        //{
-        //    SqlConnection conn = null;
-        //    SqlDataReader rdr = null;
-
-        //    try
-        //    {
-                
-        //        GridView.DataSource = _cnt.ViewGrid().ExecuteReader();
-        //        GridView.DataBind();
-        //    }
-        //    catch (Exception ex)
-        //    {
-            
-        //    Label1.Text += ex.Message;
-        //}
-        //finally
-        //{
-        //    if (conn != null)
-        //    {
-        //        conn.Close();
-        //    }
-        //    if (rdr != null)
-        //    {
-        //        rdr.Close();
-        //    }
-        //}
-            
-        //}
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
         {
 

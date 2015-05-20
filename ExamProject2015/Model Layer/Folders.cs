@@ -16,12 +16,5 @@ namespace ExamProject2015.Model_Layer
             this.ID = ID;
             this.Name = Name;
         }
-
-        //static public int getID()
-        //{
-        //    return 
-        //}
-
-
     }
 }

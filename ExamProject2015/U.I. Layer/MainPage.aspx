@@ -1,6 +1,60 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="ExamProject2015.MainPage" %>
 
-<!DOCTYPE html>
+	<!doctype html>
+	<%--<html>
+	<head>
+		<title>Testing</title>
+		<link rel="stylesheet" type="text/css" href="Main.css">
+
+		</head>
+		<body>
+			<header>
+				<nav>
+				<h1>Awesome page</h1>
+					<ul>
+						<li><a href="#"></a>Home</li>
+						<li><a href="#"></a>Blog</li>
+						<li><a href="#"></a>About</li>
+						<li><a href="#"></a>Contact</li>
+						<li><a href="#"></a>Links</li>
+					</ul>
+				
+				</nav>
+			</header>
+			<div class="row">
+			<div class="col"></div>
+			<div class="col"></div>
+			<div class="col"></div>
+			</div>
+            
+            <div id="navbar">
+            <h1>Awesome page</h1>
+					<ul>
+						<li><a href="#"></a>Home</li>
+						<li><a href="#"></a>Blog</li>
+						<li><a href="#"></a>About</li>
+						<li><a href="#"></a>Contact</li>
+						<li><a href="#"></a>Links</li>
+					</ul>
+				
+            </div>
+            
+            <div id="section">
+            <h1>Awesome page</h1>
+					<ul>
+						<li><a href="#"></a>Home</li>
+						<li><a href="#"></a>Blog</li>
+						<li><a href="#"></a>About</li>
+						<li><a href="#"></a>Contact</li>
+						<li><a href="#"></a>Links</li>
+					</ul>
+				
+            </div>
+			
+			<footer>footer</footer>
+		</body>
+	</html>--%>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
