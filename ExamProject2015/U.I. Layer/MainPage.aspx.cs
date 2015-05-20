@@ -246,10 +246,6 @@ namespace ExamProject2015
             c.DeleteFolder(c.getLastFolderID());
         }
 
-        protected void UrlBtn_Click(object sender, EventArgs e)
-        {
-            MainController c = new MainController();
-            c.UploadLink(txtb_LinkName.Text, txtb_LinkUpload.Text);
-        }
+        
     }
 }

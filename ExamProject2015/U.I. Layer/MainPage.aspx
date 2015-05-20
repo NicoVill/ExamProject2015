@@ -26,15 +26,21 @@
 			</header>
 
     <div id="section">
-    <h1>London</h1>
-    <p>
-    London is the capital city of England. It is the most populous city in the United Kingdom,
-    with a metropolitan area of over 13 million inhabitants.
-    </p>
-    <p>
-    Standing on the River Thames, London has been a major settlement for two millennia,
-    its history going back to its founding by the Romans, who named it Londinium.
-    </p>
+    <form runat="server">
+     <asp:GridView ID="GridView" runat="server" AlternatingRowStyle-BackColor="White" AlternatingRowStyle-ForeColor="#000" AutoGenerateColumns="false" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" RowStyle-BackColor="#A1DCF2" OnSelectedIndexChanged="GridView_SelectedIndexChanged">
+            <Columns>
+                <asp:BoundField DataField="GivenName" HeaderText="File Name" />
+                <asp:BoundField DataField="Name" HeaderText="Real File Name" />
+                <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkDownload" runat="server"  OnClick="DownloadFile" Text="Download" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+        <br/>
+        <asp:Button ID="btn_upload" runat="server" Text="Upload Fil" OnClick="btn_upload_Click" />
+    </form>
     </div>
 
     <div id="navbar">
@@ -81,28 +87,9 @@
         <br />
         <br />
         <p>
-            <asp:Label ID="UrlNameLabel" runat="server" Text="Name of Link"></asp:Label>
-&nbsp;&nbsp;
-            <asp:TextBox ID="txtb_LinkName" runat="server"></asp:TextBox>
-        </p>
-        <p>
-            <asp:Label ID="UrlLabel" runat="server" Text="Insert Url"></asp:Label>
-            <br />
-            <asp:TextBox ID="txtb_LinkUpload" runat="server"></asp:TextBox>
-            <asp:Button ID="UrlBtn" runat="server" Text="Upload Link" OnClick="UrlBtn_Click" />
-        </p>
+      
         
-        <asp:GridView ID="GridView" runat="server" AlternatingRowStyle-BackColor="White" AlternatingRowStyle-ForeColor="#000" AutoGenerateColumns="false" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" RowStyle-BackColor="#A1DCF2" OnSelectedIndexChanged="GridView_SelectedIndexChanged">
-            <Columns>
-                <asp:BoundField DataField="GivenName" HeaderText="File Name" />
-                <asp:BoundField DataField="Name" HeaderText="Real File Name" />
-                <asp:TemplateField ItemStyle-HorizontalAlign="Center">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="lnkDownload" runat="server"  OnClick="DownloadFile" Text="Download" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+       
 
     </form>
     </div>

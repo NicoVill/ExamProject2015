@@ -8,6 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <asp:FileUpload ID="FileUpload1" runat="server" />
         <asp:Button ID="btn_Upload" runat="server" OnClick="Upload" Text="Upload" />
         <br />
@@ -32,5 +33,22 @@
     
     </div>
     </form>
+
+
+          <asp:Label ID="UrlNameLabel" runat="server" Text="Name of Link"></asp:Label>
+&nbsp;&nbsp;&nbsp;
+
+            <asp:TextBox ID="txtb_LinkName" runat="server"></asp:TextBox>
+       
+            &nbsp;&nbsp;&nbsp;
+       
+            <asp:Label ID="UrlLabel" runat="server" Text="Insert Url"></asp:Label>
+            
+            &nbsp;&nbsp;&nbsp;
+            
+            <asp:TextBox ID="txtb_LinkUpload" runat="server"></asp:TextBox>
+            <asp:Button ID="UrlBtn" runat="server" Text="Upload Link" OnClick="UrlBtn_Click" />
+        
+        </form>
 </body>
 </html>
