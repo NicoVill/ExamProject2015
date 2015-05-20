@@ -16,7 +16,6 @@ namespace ExamProject2015
         MainController _cnt = new MainController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //ViewGrid();
             Response.Write(Model_Layer.SessionData.LatestFolderID);
         }
 

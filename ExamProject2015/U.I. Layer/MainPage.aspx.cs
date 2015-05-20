@@ -34,7 +34,7 @@ namespace ExamProject2015
             
             if (_cnt.checkPrivLevel() == 3)
             {
-                btn_upload.Enabled = false;
+                UrlBtn.Enabled = false;
             }
             
         }
@@ -59,12 +59,12 @@ namespace ExamProject2015
                 DropDownYear.Items.Add(new ListItem(item.Name, item.ID.ToString()));
 
                 
-                Label1.Text = item.ID.ToString();
+                //Label1.Text = item.ID.ToString();
             }
             DropDownClass.Enabled = false;
             DropDownClass.ClearSelection();
 
-            Label2.Text = ParentID.ToString();
+           // Label2.Text = ParentID.ToString();
         }
 
         protected void DropDownYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,11 +86,11 @@ namespace ExamProject2015
                 DropDownClass.Items.Add(new ListItem(item.Name, item.ID.ToString()));
 
                 
-                Label1.Text = item.ID.ToString();
+                //Label1.Text = item.ID.ToString();
             }
             DropDownSubject.Enabled = false;
 
-            Label2.Text = ParentID.ToString();
+            //Label2.Text = ParentID.ToString();
         }
 
         protected void DropDownClass_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,11 +111,11 @@ namespace ExamProject2015
                 DropDownSubject.Items.Add(new ListItem(item.Name, item.ID.ToString()));
                 
 
-                Label1.Text = item.ID.ToString();
+                //Label1.Text = item.ID.ToString();
             }
             DropDownSubjectFolder.Enabled = false;
 
-            Label2.Text = ParentID.ToString();
+            //Label2.Text = ParentID.ToString();
         }
 
         protected void DropDownSubject_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,12 +136,12 @@ namespace ExamProject2015
                 DropDownSubjectFolder.Items.Add(new ListItem(item.Name, item.ID.ToString()));
                 
 
-                Label1.Text = item.ID.ToString();
+                //Label1.Text = item.ID.ToString();
             }
 
             
 
-            Label2.Text = ParentID.ToString();
+            //Label2.Text = ParentID.ToString();
 
         }
 
@@ -152,7 +152,7 @@ namespace ExamProject2015
 
 
 
-            Label1.Text = ID.ToString();
+            //Label1.Text = ID.ToString();
 
             _cnt.DownloadFile(ID);
         }
@@ -177,7 +177,7 @@ namespace ExamProject2015
             catch (Exception ex)
             {
 
-                Label1.Text += ex.Message;
+                //Label1.Text += ex.Message;
             }
             finally
             {
@@ -221,26 +221,26 @@ namespace ExamProject2015
             }
             else
             {
-                Label2.Text = "Skriv et navn";
+                //Label2.Text = "Skriv et navn";
             }
         }
 
-        protected void RenameFolderBtn_Click(object sender, EventArgs e)
+        protected void btn_RenameFolder_Click(object sender, EventArgs e)
         {
-            if (txtb_FolderName.Text.Count() > 0)
+            if (RenameFolderTxt.Text.Count() > 0)
             {
                 MainController c = new MainController();
                 c.RenameFolder(RenameFolderTxt.Text, c.getLastFolderID());
             }
             else
             {
-                Label2.Text = "Skriv et navn";
+                //Label2.Text = "Skriv et navn";
             }
 
             
         }
 
-        protected void btn_DeleteFolder_Click(object sender, EventArgs e)
+        protected void btn_Delete_Click(object sender, EventArgs e)
         {
             MainController c = new MainController();
             c.DeleteFolder(c.getLastFolderID());
@@ -249,7 +249,7 @@ namespace ExamProject2015
         protected void UrlBtn_Click(object sender, EventArgs e)
         {
             MainController c = new MainController();
-            c.UploadLink(UrlNameTxt.Text, UrlTxt.Text);
+            c.UploadLink(txtb_LinkName.Text, txtb_LinkUpload.Text);
         }
     }
 }

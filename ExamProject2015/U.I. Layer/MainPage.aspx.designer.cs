@@ -67,42 +67,6 @@ namespace ExamProject2015 {
         protected global::System.Web.UI.WebControls.DropDownList DropDownSubjectFolder;
         
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// btn_upload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_upload;
-        
-        /// <summary>
-        /// GridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView;
-        
-        /// <summary>
         /// txtb_FolderName control.
         /// </summary>
         /// <remarks>
@@ -130,22 +94,22 @@ namespace ExamProject2015 {
         protected global::System.Web.UI.WebControls.TextBox RenameFolderTxt;
         
         /// <summary>
-        /// RenameFolderBtn control.
+        /// btn_RenameFolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RenameFolderBtn;
+        protected global::System.Web.UI.WebControls.Button btn_RenameFolder;
         
         /// <summary>
-        /// btn_DeleteFolder control.
+        /// btn_Delete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_DeleteFolder;
+        protected global::System.Web.UI.WebControls.Button btn_Delete;
         
         /// <summary>
         /// UrlNameLabel control.
@@ -157,13 +121,13 @@ namespace ExamProject2015 {
         protected global::System.Web.UI.WebControls.Label UrlNameLabel;
         
         /// <summary>
-        /// UrlNameTxt control.
+        /// txtb_LinkName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UrlNameTxt;
+        protected global::System.Web.UI.WebControls.TextBox txtb_LinkName;
         
         /// <summary>
         /// UrlLabel control.
@@ -175,13 +139,13 @@ namespace ExamProject2015 {
         protected global::System.Web.UI.WebControls.Label UrlLabel;
         
         /// <summary>
-        /// UrlTxt control.
+        /// txtb_LinkUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UrlTxt;
+        protected global::System.Web.UI.WebControls.TextBox txtb_LinkUpload;
         
         /// <summary>
         /// UrlBtn control.
@@ -191,5 +155,14 @@ namespace ExamProject2015 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button UrlBtn;
+        
+        /// <summary>
+        /// GridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView;
     }
 }
