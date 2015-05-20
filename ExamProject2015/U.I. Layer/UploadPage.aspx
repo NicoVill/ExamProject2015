@@ -2,12 +2,29 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<html>
+<head>
+    <title>Awesome</title>
+    <link rel="stylesheet" href="Main.css">
+
 </head>
+
 <body>
-    <form id="form1" runat="server">
+
+    <header>
+				<nav>
+				<h1>Awesome page</h1>
+					<ul>
+						<li><a href="#"></a>Home</li>
+						<li><a href="#"></a>Blog</li>
+						<li><a href="#"></a>About</li>
+						<li><a href="#"></a>Contact</li>
+						<li><a href="#"></a>Links</li>
+					</ul>
+				
+				</nav>
+			</header>
+
     <form id="form1" runat="server">
         <asp:FileUpload ID="FileUpload1" runat="server" />
         <asp:Button ID="btn_Upload" runat="server" OnClick="Upload" Text="Upload" />
@@ -49,6 +66,8 @@
             <asp:TextBox ID="txtb_LinkUpload" runat="server"></asp:TextBox>
             <asp:Button ID="UrlBtn" runat="server" Text="Upload Link" OnClick="UrlBtn_Click" />
         
-        </form>
+        
+
+    <footer>footer</footer>
 </body>
 </html>
