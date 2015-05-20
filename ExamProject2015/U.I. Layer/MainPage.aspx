@@ -24,9 +24,9 @@
 				
 				</nav>
 			</header>
-
-    <div id="section">
     <form runat="server">
+    <div id="section">
+    
      <asp:GridView ID="GridView" runat="server" AlternatingRowStyle-BackColor="White" AlternatingRowStyle-ForeColor="#000" AutoGenerateColumns="false" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" RowStyle-BackColor="#A1DCF2" OnSelectedIndexChanged="GridView_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="GivenName" HeaderText="File Name" />
@@ -40,11 +40,11 @@
         </asp:GridView>
         <br/>
         <asp:Button ID="btn_upload" runat="server" Text="Upload Fil" OnClick="btn_upload_Click" />
-    </form>
+    
     </div>
 
     <div id="navbar">
-    <form id="form1" runat="server">
+    
     <div>
         
     </div>
@@ -91,9 +91,9 @@
         
        
 
-    </form>
+    
     </div>
-
+    </form>
     <footer>footer</footer>
 
 </body>
