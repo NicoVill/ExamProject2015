@@ -15,7 +15,7 @@
 				<nav>
 				<h1>Awesome page</h1>
 					<ul>
-						<li><a href="#"></a>Home</li>
+						<li><a href="/Mainpage.aspx"></a>Home</li>
 						<li><a href="#"></a>Blog</li>
 						<li><a href="#"></a>About</li>
 						<li><a href="#"></a>Contact</li>
@@ -38,6 +38,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <asp:Label ID="label_Grid" runat="server" Text=""></asp:Label>
         <br/>
         <asp:Button ID="btn_upload" runat="server" Text="Upload Fil" OnClick="btn_upload_Click" />
     
@@ -76,6 +77,7 @@
 
         <asp:Button ID="btn_CreateFolder" runat="server" Text="Create Folder" OnClick="btn_CreateFolder_Click" />
         <br />
+        <asp:Label ID="label_CreateFolder" runat="server" Text=""></asp:Label>
         <br />
         <asp:TextBox ID="RenameFolderTxt" runat="server"></asp:TextBox>
 
@@ -84,11 +86,15 @@
 
 
         <br />
-        <asp:Button ID="btn_Delete" runat="server" Text="Delete Folder" OnClick="btn_Delete_Click" />
+        <asp:Label ID="label_RenameFolder" runat="server" Text=""></asp:Label>
 
 
 
         <br />
+
+
+
+        <asp:Button ID="btn_Delete" runat="server" Text="Delete Folder" OnClick="btn_Delete_Click" />
 
 
 

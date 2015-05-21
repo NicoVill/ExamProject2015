@@ -177,7 +177,7 @@ namespace ExamProject2015
             catch (Exception ex)
             {
 
-                //Label1.Text += ex.Message;
+               label_Grid.Text += ex.Message;
             }
             finally
             {
@@ -221,7 +221,7 @@ namespace ExamProject2015
             }
             else
             {
-                //Label2.Text = "Skriv et navn";
+                label_CreateFolder.Text = "Skriv et navn";
             }
         }
 
@@ -234,7 +234,7 @@ namespace ExamProject2015
             }
             else
             {
-                //Label2.Text = "Skriv et navn";
+                label_RenameFolder.Text = "Skriv et navn";
             }
 
             

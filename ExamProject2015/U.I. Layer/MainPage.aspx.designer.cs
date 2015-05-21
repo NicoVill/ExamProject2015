@@ -22,6 +22,15 @@ namespace ExamProject2015 {
         protected global::System.Web.UI.WebControls.GridView GridView;
         
         /// <summary>
+        /// label_Grid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_Grid;
+        
+        /// <summary>
         /// btn_upload control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace ExamProject2015 {
         protected global::System.Web.UI.WebControls.Button btn_CreateFolder;
         
         /// <summary>
+        /// label_CreateFolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CreateFolder;
+        
+        /// <summary>
         /// RenameFolderTxt control.
         /// </summary>
         /// <remarks>
@@ -110,6 +128,15 @@ namespace ExamProject2015 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_RenameFolder;
+        
+        /// <summary>
+        /// label_RenameFolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_RenameFolder;
         
         /// <summary>
         /// btn_Delete control.
