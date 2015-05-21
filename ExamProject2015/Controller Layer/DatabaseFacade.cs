@@ -114,7 +114,7 @@ namespace ExamProject2015
                 {
                     byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
-                    using (SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;"))
+                    using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString))
                     {
 
                         
@@ -147,8 +147,7 @@ namespace ExamProject2015
             string fileName, contentType;
 
             using (
-                SqlConnection con =
-                    new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;"))
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand("DownloadFile", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -196,8 +195,7 @@ namespace ExamProject2015
         public List<Model_Layer.Folders> GetDirDB(int ParentID = 0)
         {
             List<Model_Layer.Folders> FolderRead = new List<Model_Layer.Folders>();
-            SqlConnection con =
-                    new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
             con.Open();
             SqlCommand cmd = new SqlCommand("GetDir", con);
@@ -220,7 +218,7 @@ namespace ExamProject2015
 
         public void CreateFolderDB(string Name, int ParentID)
         {
-            SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
             con.Open();
             SqlCommand cmd = new SqlCommand("CreateFolder", con);
@@ -235,7 +233,7 @@ namespace ExamProject2015
 
         public void RenameFolderDB(string Name, int ID)
         {
-            SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
             con.Open();
             SqlCommand cmd = new SqlCommand("RenameFolder", con);
@@ -250,7 +248,7 @@ namespace ExamProject2015
 
         public void DeleteFolderDB(int ID)
         {
-            SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
             con.Open();
             SqlCommand cmd = new SqlCommand("DeleteFolder", con);
@@ -265,7 +263,7 @@ namespace ExamProject2015
 
         public void UploadLinkDB(string Name, string Url)
         {
-            SqlConnection con = new SqlConnection("server=ealdb1.eal.local;database=EJL86_DB;uid=ejl86_usr;password=Baz1nga86;");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
             con.Open();
             SqlCommand cmd = new SqlCommand("UploadLink", con);
