@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FolderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExamProject2015\ExamProject2015.csproj">
