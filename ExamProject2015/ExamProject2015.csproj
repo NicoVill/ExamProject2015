@@ -75,6 +75,9 @@
   <ItemGroup>
     <Compile Include="Controller Layer\DatabaseFacade.cs" />
     <Compile Include="Controller Layer\MainController.cs" />
+    <Compile Include="Model Layer\IFile.cs" />
+    <Compile Include="Model Layer\IFolder.cs" />
+    <Compile Include="Model Layer\IUser.cs" />
     <Compile Include="Model Layer\File.cs" />
     <Compile Include="Model Layer\Folders.cs" />
     <Compile Include="Model Layer\Login.cs" />
@@ -105,11 +108,10 @@
     <Compile Include="U.I. Layer\UploadPage.aspx.designer.cs">
       <DependentUpon>UploadPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Upload Helper.cs" />
+    <Compile Include="Helper\Upload Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Helper\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
