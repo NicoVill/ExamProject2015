@@ -37,7 +37,7 @@ namespace ExamProject2015
             }
             catch (Exception ex)
             {
-                errormsg = "No Connection to server";
+                errormsg = "No Connection to server:  " + ConfigurationManager.ConnectionStrings["Database"].ConnectionString.ToString() + "\n ex:  " + ex.ToString();
                 return false;
             }
 
@@ -79,7 +79,7 @@ namespace ExamProject2015
             }
             catch (Exception ex)
             {
-                errormsg = "Forkert brugernavn eller password";
+                errormsg = "Forkert brugernavn eller password "  + ex.ToString();
             }
             finally
             {
