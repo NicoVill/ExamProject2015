@@ -8,9 +8,9 @@ namespace ExamProject2015
 {
     interface IFile
     {
-        public string name { get; set; }
-        public DateTime dateOfCreation { get; set; }
-        public string fileType { get; set; }
+         string name { get; set; }
+         DateTime dateOfCreation { get; set; }
+         string fileType { get; set; }
 
         string readData();
 
