@@ -22,6 +22,15 @@ namespace ExamProject2015 {
         protected global::System.Web.UI.WebControls.GridView GridView;
         
         /// <summary>
+        /// GridViewLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewLink;
+        
+        /// <summary>
         /// label_Grid control.
         /// </summary>
         /// <remarks>

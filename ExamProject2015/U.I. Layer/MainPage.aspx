@@ -38,6 +38,15 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <br />
+        <asp:GridView ID="GridViewLink" runat="server">
+            <Columns>
+                <asp:BoundField DataField="LinkName" HeaderText="Link navn" />
+                <asp:hyperlinkfield datanavigateurlformatstring="http://{0}" HeaderText="URL" />
+            </Columns>
+        </asp:GridView>
+        <br />
+        <br />
         <asp:Label ID="label_Grid" runat="server" Text=""></asp:Label>
         <br/>
         <asp:Button ID="btn_upload" runat="server" Text="Upload Fil" OnClick="btn_upload_Click" />
