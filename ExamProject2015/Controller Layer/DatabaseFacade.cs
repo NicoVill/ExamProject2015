@@ -119,7 +119,7 @@ namespace ExamProject2015
 
                         
 
-                        SqlCommand cmd = new SqlCommand("UploadFile", con);
+                        SqlCommand cmd = new SqlCommand("db_owner.UploadFile", con);
                         cmd.CommandType = CommandType.StoredProcedure;
                         {
 
@@ -149,7 +149,7 @@ namespace ExamProject2015
             using (
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("DownloadFile", con);
+                SqlCommand cmd = new SqlCommand("db_owner.DownloadFile", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
             
@@ -182,7 +182,7 @@ namespace ExamProject2015
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
             conn.Open();
-            SqlCommand cmd = new SqlCommand("ViewFiles", conn);
+            SqlCommand cmd = new SqlCommand("db_owner.ViewFiles", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@ID", ID);
