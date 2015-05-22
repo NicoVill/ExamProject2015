@@ -73,6 +73,11 @@ namespace ExamProject2015
            return _dbf.ViewGrid(ID);
         }
 
+        public SqlCommand ViewGridLinks(int ID)
+        {
+            return _dbf.ViewGridLinks(ID);
+        }
+
         public List<Model_Layer.Folders> GetDir(int ParentID = 0)
         {
             DatabaseFacade db = new DatabaseFacade();
