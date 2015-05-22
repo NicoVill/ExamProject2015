@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Controller Layer\DatabaseFacade.cs" />
     <Compile Include="Controller Layer\MainController.cs" />
+    <Compile Include="Model Layer\ILink.cs" />
     <Compile Include="Model Layer\IFile.cs" />
     <Compile Include="Model Layer\IFolder.cs" />
     <Compile Include="Model Layer\IUser.cs" />
