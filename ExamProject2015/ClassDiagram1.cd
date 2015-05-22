@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ExamProject2015.DatabaseFacade" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAARAEAAIAAAAAAAgAIAEAAAAACxABUEAAAgAAAAA=</HashCode>
+      <FileName>Controller Layer\DatabaseFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.MainController" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAGBAAABAAAAAAACBAAAIAAAAAAAABAAIQAABiABA=</HashCode>
+      <FileName>Controller Layer\MainController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.Global" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.UploadHelper" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAADAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\Upload Helper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.File" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAIAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model Layer\File.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.Login" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model Layer\Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.FrontPage" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAggAAAAIYAAAAAAAAAAMAAAAAAACAIAAAIAAAA=</HashCode>
+      <FileName>U.I. Layer\FrontPage.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.MainPage" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAKQAAAAEABAQgCDqAEAIABAAAgwAAhIAAAEiIBEAA=</HashCode>
+      <FileName>U.I. Layer\MainPage.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.UploadPage" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gKACAAAAEAAAAAgAAiAAABiAMAACAAAAAAAAAAIABAg=</HashCode>
+      <FileName>U.I. Layer\UploadPage.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.Model_Layer.Folders" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model Layer\Folders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.Model_Layer.SessionData" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAQAAAAACAAAAAIAAAAQAACAAAAAAAAAAA=</HashCode>
+      <FileName>Model Layer\SessionData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamProject2015.Model_Layer.User" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Model Layer\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ExamProject2015.IFile" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQEAAAIAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model Layer\IFile.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ExamProject2015.IFolder" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model Layer\IFolder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ExamProject2015.ILink" Collapsed="true">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model Layer\ILink.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ExamProject2015.IUser" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Model Layer\IUser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

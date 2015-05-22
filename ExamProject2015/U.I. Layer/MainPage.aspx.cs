@@ -172,7 +172,9 @@ namespace ExamProject2015
             {
 
                 GridView.DataSource = _cnt.ViewGrid(ID).ExecuteReader();
+                GridViewLink.DataSource = _cnt.ViewGridLinks(ID).ExecuteReader();
                 GridView.DataBind();
+                GridViewLink.DataBind();
             }
             catch (Exception ex)
             {

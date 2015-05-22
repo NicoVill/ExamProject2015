@@ -190,7 +190,17 @@ namespace ExamProject2015
             return cmd;
         }
 
+        public SqlCommand ViewGridLinks(int ID)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("db_owner.ViewLinks", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.Add("@ID", ID);
+
+            return cmd;
+        }
 
         public List<Model_Layer.Folders> GetDirDB(int ParentID = 0)
         {

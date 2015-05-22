@@ -41,8 +41,8 @@
         <br />
         <asp:GridView ID="GridViewLink" runat="server">
             <Columns>
-                <asp:BoundField DataField="LinkName" HeaderText="Link navn" />
-                <asp:hyperlinkfield datanavigateurlformatstring="http://{0}" HeaderText="URL" />
+                <asp:BoundField DataField="Name" HeaderText="Link navn" />
+                <asp:hyperlinkfield DataTextField="Url" datanavigateurlformatstring="http://{0}" HeaderText="URL" DataNavigateUrlFields="Url" />
             </Columns>
         </asp:GridView>
         <br />
