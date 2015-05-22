@@ -29,13 +29,11 @@ namespace ExamProject2015
                     DropDownSchool.Items.Add(new ListItem(item.Name, item.ID.ToString()));
                 }
                 DropDownYear.Enabled = false;             
-            }
-            
+            }           
             if (_cnt.checkPrivLevel() == 3)
             {
                 btn_upload.Enabled = false;
-            }
-            
+            }            
         }
 
         protected void DropDownSchool_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,14 +54,9 @@ namespace ExamProject2015
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownYear.Items.Add(new ListItem(item.Name, item.ID.ToString()));
-
-                
-                //Label1.Text = item.ID.ToString();
             }
             DropDownClass.Enabled = false;
             DropDownClass.ClearSelection();
-
-           // Label2.Text = ParentID.ToString();
         }
 
         protected void DropDownYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,13 +77,8 @@ namespace ExamProject2015
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownClass.Items.Add(new ListItem(item.Name, item.ID.ToString()));
-
-                
-                //Label1.Text = item.ID.ToString();
             }
             DropDownSubject.Enabled = false;
-
-            //Label2.Text = ParentID.ToString();
         }
 
         protected void DropDownClass_SelectedIndexChanged(object sender, EventArgs e)
@@ -135,19 +123,12 @@ namespace ExamProject2015
 
         protected void DropDownSubjectFolder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //DropDownSchool.Items.Add(new ListItem("Vælg Mappe", null));
-            //Model_Layer.SessionData.LatestFolderID = item.ID;
         }
 
         protected void DownloadFile(object sender, EventArgs e)
         {
             MainController _cnt = new MainController();
             int ID = int.Parse((sender as LinkButton).CommandArgument);
-
-
-
-            //Label1.Text = ID.ToString();
-
             _cnt.DownloadFile(ID);
         }
 
@@ -158,7 +139,6 @@ namespace ExamProject2015
             MainController _cnt = new MainController();
             try
             {
-
                 GridView.DataSource = _cnt.ViewGrid(ID).ExecuteReader();
                 GridViewLink.DataSource = _cnt.ViewGridLinks(ID).ExecuteReader();
                 GridView.DataBind();
@@ -166,7 +146,6 @@ namespace ExamProject2015
             }
             catch (Exception ex)
             {
-
                label_Grid.Text += ex.Message;
             }
             finally
@@ -180,19 +159,10 @@ namespace ExamProject2015
                     rdr.Close();
                 }
             }
-
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            //Label1.Text = Model_Layer.Folders.getID().ToString();
-
-            
         }
 
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         protected void btn_upload_Click(object sender, EventArgs e)
@@ -223,17 +193,13 @@ namespace ExamProject2015
             else
             {
                 label_RenameFolder.Text = "Skriv et navn";
-            }
-
-            
+            }           
         }
 
         protected void btn_Delete_Click(object sender, EventArgs e)
         {
             MainController c = new MainController();
             c.DeleteFolder(c.getLastFolderID());
-        }
-
-        
+        }       
     }
 }
