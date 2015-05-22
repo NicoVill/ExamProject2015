@@ -198,7 +198,7 @@ namespace ExamProject2015
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
             con.Open();
-            SqlCommand cmd = new SqlCommand("GetDir", con);
+            SqlCommand cmd = new SqlCommand("db_owner.GetDir", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@ParentID", ParentID));
             SqlDataReader rdr = cmd.ExecuteReader();
@@ -221,7 +221,7 @@ namespace ExamProject2015
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
             con.Open();
-            SqlCommand cmd = new SqlCommand("CreateFolder", con);
+            SqlCommand cmd = new SqlCommand("db_owner.CreateFolder", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@Name", Name));
             cmd.Parameters.Add(new SqlParameter("@ParentID", ParentID));
@@ -236,7 +236,7 @@ namespace ExamProject2015
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
             con.Open();
-            SqlCommand cmd = new SqlCommand("RenameFolder", con);
+            SqlCommand cmd = new SqlCommand("db_owner.RenameFolder", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@Name", Name));
             cmd.Parameters.Add(new SqlParameter("@ID", ID));
@@ -251,7 +251,7 @@ namespace ExamProject2015
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
             con.Open();
-            SqlCommand cmd = new SqlCommand("DeleteFolder", con);
+            SqlCommand cmd = new SqlCommand("db_owner.DeleteFolder", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@ID", ID));
 
@@ -259,14 +259,15 @@ namespace ExamProject2015
 
             con.Close();
             con.Dispose();
-        }
+         }
+        
 
         public void UploadLinkDB(string Name, string Url)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
             con.Open();
-            SqlCommand cmd = new SqlCommand("UploadLink", con);
+            SqlCommand cmd = new SqlCommand("db_owner.UploadLink", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@Name", Name));
             cmd.Parameters.Add(new SqlParameter("@Url", Url));
