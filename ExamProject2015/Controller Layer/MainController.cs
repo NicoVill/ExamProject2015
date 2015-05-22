@@ -79,9 +79,23 @@ namespace ExamProject2015
 
 
             return db.GetDirDB(ParentID);
+        }
 
+        public List<Model_Layer.Folders> GetSubDir(int ParentID = 0)
+        {
+            List<Model_Layer.Folders> ReturnList = new List<Model_Layer.Folders>();
+            DatabaseFacade db = new DatabaseFacade();
 
+            foreach (var item in db.GetDirDB(ParentID))
+            {
+                ReturnList.Add(item);
+                foreach (var temp in GetSubDir(item.ID))
+                {
+                    ReturnList.Add(new Model_Layer.Folders(temp.ID, "-> " + temp.Name));
+                }
 
+            }
+            return ReturnList;
         }
 
         public void CreateFolder(string Name, int ParentID)
@@ -102,7 +116,6 @@ namespace ExamProject2015
 
         public void DeleteFolder(int ID)
         {
-            
             _dbf.DeleteFolderDB(ID);
         }
 

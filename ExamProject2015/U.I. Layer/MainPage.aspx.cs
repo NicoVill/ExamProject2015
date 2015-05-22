@@ -12,7 +12,6 @@ namespace ExamProject2015
 {
     public partial class MainPage : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             MainController _cnt = new MainController();
@@ -39,15 +38,15 @@ namespace ExamProject2015
             
         }
 
-
         protected void DropDownSchool_SelectedIndexChanged(object sender, EventArgs e)
         {
             int ParentID = int.Parse(DropDownSchool.SelectedValue);
-            
+
+            DropDownYear.Items.Clear();
             DropDownYear.Enabled = true;
             
             MainController   c = new MainController();
-            DropDownYear.Items.Clear();
+            
             DropDownYear.Items.Add(new ListItem("Vælg Årgang", ParentID.ToString()));
 
             ViewGrid(ParentID);
@@ -69,13 +68,14 @@ namespace ExamProject2015
 
         protected void DropDownYear_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DropDownClass.Items.Clear();
             DropDownClass.Enabled = true;
             int ParentID = int.Parse(DropDownYear.SelectedValue);
 
             
 
             MainController c = new MainController();
-            DropDownClass.Items.Clear();
+            
             DropDownClass.Items.Add(new ListItem("Vælg Klasse", ParentID.ToString()));
 
             ViewGrid(ParentID);
@@ -95,12 +95,13 @@ namespace ExamProject2015
 
         protected void DropDownClass_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DropDownSubject.Items.Clear();
             DropDownSubject.Enabled = true;
             int ParentID = int.Parse(DropDownClass.SelectedValue);
             
 
             MainController   c = new MainController();
-            DropDownSubject.Items.Clear();
+            
             DropDownSubject.Items.Add(new ListItem("Vælg Fag", ParentID.ToString()));
 
             ViewGrid(ParentID);
@@ -120,29 +121,32 @@ namespace ExamProject2015
 
         protected void DropDownSubject_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DropDownSubjectFolder.Items.Clear(); 
             DropDownSubjectFolder.Enabled = true;
             int ParentID = int.Parse(DropDownSubject.SelectedValue);
-            DropDownSubjectFolder.Items.Clear();
-
-            DropDownSubjectFolder.Items.Add(new ListItem("Vælg Mappe", ParentID.ToString()));
+                     
 
             MainController c = new MainController();
+
+            DropDownSubjectFolder.Items.Add(new ListItem("Vælg Mappe", int.Parse(DropDownSubject.SelectedValue).ToString()));
+
+            foreach (var item in c.GetSubDir(ParentID))
+            {
+                DropDownSubjectFolder.Items.Add(new ListItem(item.Name, item.ID.ToString()));
+                //Label1.Text = item.ID.ToString(); 
+            }
 
             ViewGrid(ParentID);
             Model_Layer.SessionData.LatestFolderID = ParentID;
 
-            foreach (var item in c.GetDir(ParentID))
-            {
-                DropDownSubjectFolder.Items.Add(new ListItem(item.Name, item.ID.ToString()));
-                
-
-                //Label1.Text = item.ID.ToString();
-            }
-
-            
-
             //Label2.Text = ParentID.ToString();
 
+        }
+
+        protected void DropDownSubjectFolder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //DropDownSchool.Items.Add(new ListItem("Vælg Mappe", null));
+            //Model_Layer.SessionData.LatestFolderID = item.ID;
         }
 
         protected void DownloadFile(object sender, EventArgs e)
@@ -155,12 +159,6 @@ namespace ExamProject2015
             //Label1.Text = ID.ToString();
 
             _cnt.DownloadFile(ID);
-        }
-
-        protected void DropDownSubjectFolder_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DropDownSchool.Items.Add(new ListItem("Vælg Mappe", null));
-            //Model_Layer.SessionData.LatestFolderID = item.ID;
         }
 
         private void ViewGrid(int ID)
@@ -209,8 +207,6 @@ namespace ExamProject2015
         {
             Response.Redirect("UploadPage.aspx");
         }
-
-        
 
         protected void btn_CreateFolder_Click(object sender, EventArgs e)
         {
