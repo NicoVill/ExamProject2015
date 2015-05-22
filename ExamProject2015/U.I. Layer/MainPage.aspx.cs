@@ -98,10 +98,10 @@ namespace ExamProject2015
             DropDownSubject.Items.Clear();
             DropDownSubject.Enabled = true;
             int ParentID = int.Parse(DropDownClass.SelectedValue);
-            
 
-            MainController   c = new MainController();
-            
+
+            MainController c = new MainController();
+
             DropDownSubject.Items.Add(new ListItem("Vælg Fag", ParentID.ToString()));
 
             ViewGrid(ParentID);
@@ -110,13 +110,8 @@ namespace ExamProject2015
             foreach (var item in c.GetDir(ParentID))
             {
                 DropDownSubject.Items.Add(new ListItem(item.Name, item.ID.ToString()));
-                
-
-                //Label1.Text = item.ID.ToString();
             }
             DropDownSubjectFolder.Enabled = false;
-
-            //Label2.Text = ParentID.ToString();
         }
 
         protected void DropDownSubject_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,14 +128,9 @@ namespace ExamProject2015
             foreach (var item in c.GetSubDir(ParentID))
             {
                 DropDownSubjectFolder.Items.Add(new ListItem(item.Name, item.ID.ToString()));
-                //Label1.Text = item.ID.ToString(); 
             }
-
             ViewGrid(ParentID);
             Model_Layer.SessionData.LatestFolderID = ParentID;
-
-            //Label2.Text = ParentID.ToString();
-
         }
 
         protected void DropDownSubjectFolder_SelectedIndexChanged(object sender, EventArgs e)
