@@ -123,7 +123,7 @@ namespace ExamProject2015
 
         protected void DropDownSubjectFolder_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Model_Layer.SessionData.LatestFolderID = int.Parse(DropDownSubjectFolder.SelectedValue);
         }
 
         protected void DownloadFile(object sender, EventArgs e)
