@@ -37,13 +37,13 @@ namespace ExamProject2015
             }
             catch (Exception ex)
             {
-                errormsg = "No Connection to server:  " + ConfigurationManager.ConnectionStrings["Database"].ConnectionString.ToString() + "\n ex:  " + ex.ToString();
+                errormsg = "No Connection to server:  " + ConfigurationManager.ConnectionStrings["Database"].ConnectionString.ToString() + "\n ERROR:  " + ex.ToString();
                 return false;
             }
 
             try
             {
-                SqlCommand cmd = new SqlCommand("AuthenticateLogin", conn);
+                SqlCommand cmd = new SqlCommand("db_owner.AuthenticateLogin", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
 
