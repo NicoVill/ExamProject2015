@@ -54,7 +54,7 @@ namespace ExamProject2015
 
             Label2.Text = UploadHelper.calcSize(FileUpload1.PostedFile.ContentLength);
 
-            _cnt.UploadFile(Filename, uploadLocation, fs, FileContent, givingFilename, Model_Layer.SessionData.LatestFolderID);
+            Label1.Text = _cnt.UploadFile(Filename, uploadLocation, fs, FileContent, givingFilename, Model_Layer.SessionData.LatestFolderID);
         }
 
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace ExamProject2015
         protected void UrlBtn_Click(object sender, EventArgs e)
         {
             MainController c = new MainController();
-            c.UploadLink(txtb_LinkName.Text, txtb_LinkUpload.Text);
+            Label2.Text =  c.UploadLink(txtb_LinkName.Text, txtb_LinkUpload.Text);
         }
     }
 }

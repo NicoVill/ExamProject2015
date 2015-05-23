@@ -18,7 +18,7 @@ namespace ExamProject2015
         public int PrivLevel { get; set; }
 
         public bool auth = false;
-        private string errormsg;
+        private string msg;
 
         
         public bool LogIn(string user, string pass)
@@ -37,7 +37,7 @@ namespace ExamProject2015
             }
             catch (Exception ex)
             {
-                errormsg = "No Connection to server:  " + ConfigurationManager.ConnectionStrings["Database"].ConnectionString.ToString() + "\n ERROR:  " + ex.ToString();
+                msg = "No Connection to server:  " + ConfigurationManager.ConnectionStrings["Database"].ConnectionString.ToString() + "\n ERROR:  " + ex.ToString();
                 return false;
             }
 
@@ -79,7 +79,7 @@ namespace ExamProject2015
             }
             catch (Exception ex)
             {
-                errormsg = "Forkert brugernavn eller password "  + ex.ToString();
+                msg = "Forkert brugernavn eller password "  + ex.ToString();
             }
             finally
             {
@@ -98,12 +98,12 @@ namespace ExamProject2015
 
         public string PrintErrorMsg()
         {
-            return errormsg;
+            return msg;
         }
 
-        public void FileUploadMethod(string fn, string path, Stream fs, string fc, string gfn, int id)
+        public string FileUploadMethod(string fn, string path, Stream fs, string fc, string gfn, int id)
         {
-
+            
             string givingFilename = gfn;
             string filename = fn;
             string contentType = fc;
@@ -131,8 +131,10 @@ namespace ExamProject2015
                             cmd.Parameters.AddWithValue("@Data", bytes);
                             cmd.Parameters.AddWithValue("@ID", id);
                             con.Open();
-                            cmd.ExecuteNonQuery();
+                            msg = HelperOutputMsgs.printMessage(cmd.ExecuteNonQuery());
                             con.Close();
+
+                            return msg;
                         }
                     }
                 }
@@ -226,7 +228,7 @@ namespace ExamProject2015
             return FolderRead;
         }
 
-        public void CreateFolderDB(string Name, int ParentID)
+        public string CreateFolderDB(string Name, int ParentID)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
@@ -235,13 +237,15 @@ namespace ExamProject2015
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@Name", Name));
             cmd.Parameters.Add(new SqlParameter("@ParentID", ParentID));
-            cmd.ExecuteNonQuery();
+            msg = HelperOutputMsgs.printMessage( cmd.ExecuteNonQuery());
 
             con.Close();
             con.Dispose();
+
+            return msg;
         }
 
-        public void RenameFolderDB(string Name, int ID)
+        public string RenameFolderDB(string Name, int ID)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
@@ -250,10 +254,12 @@ namespace ExamProject2015
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@Name", Name));
             cmd.Parameters.Add(new SqlParameter("@ID", ID));
-            cmd.ExecuteNonQuery();
+            msg = HelperOutputMsgs.printMessage( cmd.ExecuteNonQuery());
 
             con.Close();
             con.Dispose();
+
+            return msg;
         }
 
         public void DeleteFolderDB(int ID)
@@ -272,7 +278,7 @@ namespace ExamProject2015
          }
         
 
-        public void UploadLinkDB(string Name, string Url)
+        public string UploadLinkDB(string Name, string Url)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
@@ -281,10 +287,12 @@ namespace ExamProject2015
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@Name", Name));
             cmd.Parameters.Add(new SqlParameter("@Url", Url));
-            cmd.ExecuteNonQuery();
+            msg = HelperOutputMsgs.printMessage( cmd.ExecuteNonQuery());
 
             con.Close();
             con.Dispose();
+
+            return msg;
         }
     }
 } 

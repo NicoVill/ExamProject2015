@@ -11,10 +11,10 @@ namespace ExamProject2015
 {
     public class File : IFile
     {
-        string name { get; set; }
-        DateTime dateOfCreation { get; set; }
+        public string name { get; set; }
+        public DateTime dateOfCreation { get; set; }
 
-        string fileType { get; set; }
+        public string fileType { get; set; }
 
         public File (string n, string ftype)
         {
@@ -23,6 +23,11 @@ namespace ExamProject2015
 
             dateOfCreation = new DateTime();
             dateOfCreation = DateTime.Today;
+        }
+
+        public string readData()
+        {
+            return "Fil Navn: " + name + "Oprettelse Dato" + dateOfCreation.ToString() + "Fil type" + fileType;
         }
     }
 }

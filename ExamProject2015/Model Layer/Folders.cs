@@ -16,5 +16,11 @@ namespace ExamProject2015.Model_Layer
             this.ID = ID;
             this.Name = Name;
         }
+
+
+        public string readData()
+        {
+            return "Name: " + Name + "ID: " + ID;
+        }
     }
 }

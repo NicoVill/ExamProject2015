@@ -15,5 +15,11 @@ namespace ExamProject2015.Model_Layer
         {
             this.userName = userName;
         }
+
+
+        public string readData()
+        {
+            return "Username: " + userName + " | " + SessionData.getPrivLevel();
+        }
     }
 }

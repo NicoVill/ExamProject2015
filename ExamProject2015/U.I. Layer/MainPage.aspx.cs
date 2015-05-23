@@ -176,7 +176,7 @@ namespace ExamProject2015
             if (txtb_FolderName.Text.Count() > 0)
             {
                 MainController c = new MainController();
-                c.CreateFolder(txtb_FolderName.Text, c.getLastFolderID());
+                label_CreateFolder.Text = c.CreateFolder(txtb_FolderName.Text, c.getLastFolderID());
             }
             else
             {
@@ -189,7 +189,7 @@ namespace ExamProject2015
             if (RenameFolderTxt.Text.Count() > 0)
             {
                 MainController c = new MainController();
-                c.RenameFolder(RenameFolderTxt.Text, c.getLastFolderID());
+                label_RenameFolder.Text = c.RenameFolder(RenameFolderTxt.Text, c.getLastFolderID());
             }
             else
             {

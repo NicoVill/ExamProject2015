@@ -49,17 +49,18 @@ namespace ExamProject2015
             return _dbf.PrintErrorMsg();
         }
 
-        public void UploadFile(string fn, string path, Stream fs, string fc, string gfn, int id)
+        public string UploadFile(string fn, string path, Stream fs, string fc, string gfn, int id)
         {
             IFile _file = new File(fn, fc);
-
-            _dbf.FileUploadMethod(fn, path, fs, fc, gfn, id);
+            
+            string msg = _dbf.FileUploadMethod(fn, path, fs, fc, gfn, id);
 
            if (System.IO.File.Exists(@path))
             {
                 System.IO.File.Delete(@path);
             }
 
+           return msg;
 
         }
 
@@ -103,9 +104,9 @@ namespace ExamProject2015
             return ReturnList;
         }
 
-        public void CreateFolder(string Name, int ParentID)
+        public string CreateFolder(string Name, int ParentID)
         {           
-            _dbf.CreateFolderDB(Name, ParentID);
+            return _dbf.CreateFolderDB(Name, ParentID);
         }
 
         public int getLastFolderID()
@@ -113,10 +114,10 @@ namespace ExamProject2015
             return Model_Layer.SessionData.LatestFolderID;
         }
 
-        public void RenameFolder(string Name, int ID)
+        public string RenameFolder(string Name, int ID)
         {
             
-            _dbf.RenameFolderDB(Name, ID);
+            return _dbf.RenameFolderDB(Name, ID);
         }
 
         public void DeleteFolder(int ID)
@@ -124,9 +125,9 @@ namespace ExamProject2015
             _dbf.DeleteFolderDB(ID);
         }
 
-        public void UploadLink(string Name, string Url)
+        public string UploadLink(string Name, string Url)
         {          
-            _dbf.UploadLinkDB(Name, Url);
+            return _dbf.UploadLinkDB(Name, Url);
         }
     }
 }
