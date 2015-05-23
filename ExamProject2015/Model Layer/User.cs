@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ExamProject2015.Model_Layer
 {
-    public class User
+    public class User : IUser
     {
         public string userName { get; set; }
 

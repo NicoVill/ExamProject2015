@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ExamProject2015.Model_Layer
 {
-    public class Folders
+    public class Folders : IFolder
     {
         public int ID { get; set; }
         public string Name { get; set; }

@@ -84,6 +84,7 @@
     <Compile Include="Model Layer\IUser.cs" />
     <Compile Include="Model Layer\File.cs" />
     <Compile Include="Model Layer\Folders.cs" />
+    <Compile Include="Model Layer\Link.cs" />
     <Compile Include="Model Layer\Login.cs" />
     <Compile Include="Model Layer\SessionData.cs" />
     <Compile Include="Model Layer\User.cs" />

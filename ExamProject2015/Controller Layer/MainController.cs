@@ -19,7 +19,7 @@ namespace ExamProject2015
         {
             if (_dbf.LogIn(usn, pass) == true)
             {
-                Model_Layer.User usr = new Model_Layer.User(usn, _dbf.PrivLevel);
+                IUser usr = new Model_Layer.User(usn, _dbf.PrivLevel);
                 Model_Layer.SessionData.privLevel = _dbf.PrivLevel;
 
                 return _dbf.LogIn(usn, pass);
@@ -51,7 +51,7 @@ namespace ExamProject2015
 
         public void UploadFile(string fn, string path, Stream fs, string fc, string gfn, int id)
         {
-            File _file = new File(fn, fc);
+            IFile _file = new File(fn, fc);
 
             _dbf.FileUploadMethod(fn, path, fs, fc, gfn, id);
 
