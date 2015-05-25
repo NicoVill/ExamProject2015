@@ -12,6 +12,11 @@ namespace ExamProject2015
 
         int privLevel { get; set; }
 
+        DateTime birthday { get; set; }
+
+        string Email { get; set; }
+
+        string name { get; set; }
         string readData();
     }
 }

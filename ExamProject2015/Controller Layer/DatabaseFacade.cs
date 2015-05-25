@@ -24,7 +24,7 @@ namespace ExamProject2015
         public bool LogIn(string user, string pass)
         {
             bool Authenticate = false;
-
+            //int userID = 0;
             SqlConnection conn = null;
             SqlDataReader rdr = null;
 
@@ -65,6 +65,12 @@ namespace ExamProject2015
                 cmd.Parameters.Add(paramRole);
                 object privLevel = cmd.Parameters["@PrivLevel"].Value;
 
+
+                SqlParameter paramUserID = new SqlParameter("@UserID", 0);
+                paramUserID.Direction = ParameterDirection.Output;
+
+                cmd.Parameters.Add(paramUserID);
+                object UserID = cmd.Parameters["@UserID"].Value;
                 //cmd.Parameters["@Authenticate"].Value = Authenticate;
 
                 cmd.ExecuteNonQuery();
@@ -74,7 +80,7 @@ namespace ExamProject2015
                     Authenticate = false;
                 else
                     Authenticate = true;
-
+                Model_Layer.SessionData.SessionUserID = Convert.ToInt32(cmd.Parameters["@UserID"].Value);               
                 PrivLevel = Convert.ToInt32(cmd.Parameters["@PrivLevel"].Value);
             }
             catch (Exception ex)
@@ -130,6 +136,7 @@ namespace ExamProject2015
                             cmd.Parameters.AddWithValue("@ContentType", contentType);
                             cmd.Parameters.AddWithValue("@Data", bytes);
                             cmd.Parameters.AddWithValue("@ID", id);
+                            cmd.Parameters.AddWithValue("@UserID", Model_Layer.SessionData.SessionUserID);
                             con.Open();
                             msg = HelperOutputMsgs.printMessage(cmd.ExecuteNonQuery());
                             con.Close();

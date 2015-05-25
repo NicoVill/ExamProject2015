@@ -11,6 +11,8 @@ namespace ExamProject2015
         int ID { get; set; }
         string Name { get; set; }
 
+        int parentID { get; set; }
+
         string readData();
     }
 }

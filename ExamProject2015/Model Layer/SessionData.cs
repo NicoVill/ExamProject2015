@@ -56,6 +56,21 @@ namespace ExamProject2015.Model_Layer
             }
         }
 
+        public static int SessionUserID
+        {
+            get
+            {
+                if (System.Web.HttpContext.Current.Session["SessionUserID"] != null)
+                    return int.Parse((System.Web.HttpContext.Current.Session["SessionUserID"].ToString()));
+                else
+                    return -1;
+            }
+            set
+            {
+                System.Web.HttpContext.Current.Session["SessionUserID"] = value;
+            }
+        }
+
         public static string getPrivLevel ()
         {
             if (privLevel == 1)
