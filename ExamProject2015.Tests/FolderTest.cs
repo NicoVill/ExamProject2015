@@ -9,21 +9,34 @@ namespace ExamProject2015.Tests
         [TestMethod]
         public void CreateFolderTest()
         {
-            //MainController c = new MainController();
-            //bool answer = c.CreateFolder("Test123", 123);
+            DatabaseFacade dbf = new DatabaseFacade();
+            string expected = dbf.CreateFolderDB("CreateFolderTest", 152);
+            
+            string answer = "Filen er oploaded";
 
-            //Assert.AreEqual(true, answer);
-
+            Assert.AreEqual(expected, answer);
         }
 
         [TestMethod]
-        public void RenemaeFolderTest()
+        public void CreateFolderTestExist()
         {
+            DatabaseFacade dbf = new DatabaseFacade();
+            string expected = dbf.CreateFolderDB("CreateFolderTest", 152);
+
+            string answer = "Navnet er allerede brugt";
+
+            Assert.AreEqual(expected, answer);
         }
 
         [TestMethod]
         public void DeleteFolderTest()
         {
+            DatabaseFacade dbf = new DatabaseFacade();
+
+            string expected = dbf.DeleteFolderDB(168);
+            string answer = "Filen er oploaded";
+
+            Assert.AreEqual(expected, answer);
         }
     }
 }

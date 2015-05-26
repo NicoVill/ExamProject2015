@@ -262,7 +262,7 @@ namespace ExamProject2015
             return msg;
         }
 
-        public void DeleteFolderDB(int ID)
+        public string DeleteFolderDB(int ID)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
 
@@ -271,10 +271,12 @@ namespace ExamProject2015
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@ID", ID));
 
-            int ErrorMessage = cmd.ExecuteNonQuery();
+            msg = HelperOutputMsgs.printMessage(cmd.ExecuteNonQuery());
 
             con.Close();
             con.Dispose();
+            return msg;
+
          }
         
 

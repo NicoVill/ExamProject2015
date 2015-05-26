@@ -120,9 +120,9 @@ namespace ExamProject2015
             return _dbf.RenameFolderDB(Name, ID);
         }
 
-        public void DeleteFolder(int ID)
+        public string DeleteFolder(int ID)
         {
-            _dbf.DeleteFolderDB(ID);
+          return  _dbf.DeleteFolderDB(ID);
         }
 
         public string UploadLink(string Name, string Url)
