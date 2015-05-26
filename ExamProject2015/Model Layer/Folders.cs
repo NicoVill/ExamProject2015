@@ -19,7 +19,7 @@ namespace ExamProject2015.Model_Layer
         {
             folderFiles = new List<IFile>();
             folderLinks = new List<ILink>();
-            CreatorOfFolder.userName = username;
+            //CreatorOfFolder.userName = username;
             this.ID = ID;
             this.Name = Name;
         }
@@ -28,6 +28,55 @@ namespace ExamProject2015.Model_Layer
         public string readData()
         {
             return "Name: " + Name + "ID: " + ID;
+        }
+
+
+        public int parentID
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        List<IFile> IFolder.folderFiles
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        List<ILink> IFolder.folderLinks
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        IUser IFolder.CreatorOfFolder
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

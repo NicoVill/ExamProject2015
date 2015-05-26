@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExamProject2015
 {
-    interface IUser
+    public interface IUser
     {
         string userName { get; set; }
 
@@ -19,6 +19,6 @@ namespace ExamProject2015
         string name { get; set; }
         string readData();
 
-        Login connectionLogin;
+        Login connectionLogin { get; set; }
     }
 }

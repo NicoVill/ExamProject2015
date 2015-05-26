@@ -35,5 +35,18 @@ namespace ExamProject2015.Model_Layer
         {
             throw new NotImplementedException();
         }
+
+
+        public IFolder locationFolderLink
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

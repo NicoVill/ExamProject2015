@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ExamProject2015
 {
-    interface ILink
+    public interface ILink
     {
         string name { get; set; }
 
-         string url { get; set; }
+        string url { get; set; }
 
-         IFolder locationFolder;
+        IFolder locationFolderLink { get; set; }
 
         string getData();
     }

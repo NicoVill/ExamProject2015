@@ -29,5 +29,55 @@ namespace ExamProject2015
         {
             return "Fil Navn: " + name + "Oprettelse Dato" + dateOfCreation.ToString() + "Fil type" + fileType;
         }
+
+
+        public string userID
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public int parentID
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        //public IFolder locationFolderFile
+        //{
+        //    get
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //    set
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //}
+
+
+        public IFolder locationFolderFile
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

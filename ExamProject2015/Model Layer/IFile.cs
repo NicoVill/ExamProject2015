@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace ExamProject2015
 {
-    interface IFile
+   public  interface IFile
     {
          string name { get; set; }
          DateTime dateOfCreation { get; set; }
          string fileType { get; set; }
 
-         public string userID { get; set; }
+         string userID { get; set; }
 
          int parentID { get; set; }
 
-         IFolder locationFolder;
+         IFolder locationFolderFile { get; set; }
         string readData();
 
     }

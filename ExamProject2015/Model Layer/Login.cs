@@ -7,10 +7,10 @@ namespace ExamProject2015
 {
     public class Login
     {
-        public string userName { get; set; }
+        string userName { get; set; }
 
-        public string password { get; set; }
+        string password { get; set; }
 
-        public IUser connectionUser;
+        //IUser connectionUser { get; set; }
     }
 }
