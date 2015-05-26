@@ -12,6 +12,11 @@ namespace ExamProject2015
          DateTime dateOfCreation { get; set; }
          string fileType { get; set; }
 
+         public string userID { get; set; }
+
+         int parentID { get; set; }
+
+         IFolder locationFolder;
         string readData();
 
     }

@@ -10,9 +10,16 @@ namespace ExamProject2015.Model_Layer
         public int ID { get; set; }
         public string Name { get; set; }
 
+        List<IFile> folderFiles;
+        List<ILink> folderLinks;
 
-        public Folders(int ID, string Name)
+        public User CreatorOfFolder;
+
+        public Folders(int ID, string Name, string username)
         {
+            folderFiles = new List<IFile>();
+            folderLinks = new List<ILink>();
+            CreatorOfFolder.userName = username;
             this.ID = ID;
             this.Name = Name;
         }

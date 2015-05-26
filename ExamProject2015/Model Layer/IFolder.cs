@@ -11,6 +11,13 @@ namespace ExamProject2015
         int ID { get; set; }
         string Name { get; set; }
 
+        int parentID { get; set; }
+
+        List<IFile> folderFiles;
+        List<ILink> folderLinks;
+
+        public IUser CreatorOfFolder;
+
         string readData();
     }
 }

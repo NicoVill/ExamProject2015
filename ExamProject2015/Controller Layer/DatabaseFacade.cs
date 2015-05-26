@@ -24,7 +24,7 @@ namespace ExamProject2015
         public bool LogIn(string user, string pass)
         {
             bool Authenticate = false;
-
+            //int userID = 0;
             SqlConnection conn = null;
             SqlDataReader rdr = null;
 
@@ -65,6 +65,12 @@ namespace ExamProject2015
                 cmd.Parameters.Add(paramRole);
                 object privLevel = cmd.Parameters["@PrivLevel"].Value;
 
+
+                SqlParameter paramUserID = new SqlParameter("@UserID", 0);
+                paramUserID.Direction = ParameterDirection.Output;
+
+                cmd.Parameters.Add(paramUserID);
+                object UserID = cmd.Parameters["@UserID"].Value;
                 //cmd.Parameters["@Authenticate"].Value = Authenticate;
 
                 cmd.ExecuteNonQuery();
@@ -74,7 +80,7 @@ namespace ExamProject2015
                     Authenticate = false;
                 else
                     Authenticate = true;
-
+                Model_Layer.SessionData.SessionUserID = Convert.ToInt32(cmd.Parameters["@UserID"].Value);               
                 PrivLevel = Convert.ToInt32(cmd.Parameters["@PrivLevel"].Value);
             }
             catch (Exception ex)
@@ -102,8 +108,7 @@ namespace ExamProject2015
         }
 
         public string FileUploadMethod(string fn, string path, Stream fs, string fc, string gfn, int id)
-        {
-            
+        {           
             string givingFilename = gfn;
             string filename = fn;
             string contentType = fc;
@@ -116,13 +121,9 @@ namespace ExamProject2015
 
                     using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString))
                     {
-
-                        
-
                         SqlCommand cmd = new SqlCommand("db_owner.UploadFile", con);
                         cmd.CommandType = CommandType.StoredProcedure;
                         {
-
                             cmd.Connection = con;
 
                             cmd.Parameters.AddWithValue("@GName", givingFilename);
@@ -130,16 +131,15 @@ namespace ExamProject2015
                             cmd.Parameters.AddWithValue("@ContentType", contentType);
                             cmd.Parameters.AddWithValue("@Data", bytes);
                             cmd.Parameters.AddWithValue("@ID", id);
+                            cmd.Parameters.AddWithValue("@UserID", Model_Layer.SessionData.SessionUserID);
                             con.Open();
                             msg = HelperOutputMsgs.printMessage(cmd.ExecuteNonQuery());
                             con.Close();
-
                             return msg;
                         }
                     }
                 }
-            }
-            //System.Web.HttpContext.Current.Response.Redirect(Request.Url.AbsoluteUri);
+            }          
         }
 
         public void DownloadFileMethod(int id)
@@ -220,7 +220,7 @@ namespace ExamProject2015
                 string Name = rdr["Name"].ToString();
 
 
-                FolderRead.Add(new Model_Layer.Folders(ID, Name));
+                FolderRead.Add(new Model_Layer.Folders(ID, Name, Model_Layer.SessionData.usrName));
             }
             con.Close();
             con.Dispose();
