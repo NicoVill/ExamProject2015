@@ -108,8 +108,7 @@ namespace ExamProject2015
         }
 
         public string FileUploadMethod(string fn, string path, Stream fs, string fc, string gfn, int id)
-        {
-            
+        {           
             string givingFilename = gfn;
             string filename = fn;
             string contentType = fc;
@@ -122,13 +121,9 @@ namespace ExamProject2015
 
                     using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString))
                     {
-
-                        
-
                         SqlCommand cmd = new SqlCommand("db_owner.UploadFile", con);
                         cmd.CommandType = CommandType.StoredProcedure;
                         {
-
                             cmd.Connection = con;
 
                             cmd.Parameters.AddWithValue("@GName", givingFilename);
@@ -140,13 +135,11 @@ namespace ExamProject2015
                             con.Open();
                             msg = HelperOutputMsgs.printMessage(cmd.ExecuteNonQuery());
                             con.Close();
-
                             return msg;
                         }
                     }
                 }
-            }
-            //System.Web.HttpContext.Current.Response.Redirect(Request.Url.AbsoluteUri);
+            }          
         }
 
         public void DownloadFileMethod(int id)
@@ -227,7 +220,7 @@ namespace ExamProject2015
                 string Name = rdr["Name"].ToString();
 
 
-                FolderRead.Add(new Model_Layer.Folders(ID, Name));
+                FolderRead.Add(new Model_Layer.Folders(ID, Name, Model_Layer.SessionData.usrName));
             }
             con.Close();
             con.Dispose();

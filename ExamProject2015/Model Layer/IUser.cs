@@ -18,5 +18,7 @@ namespace ExamProject2015
 
         string name { get; set; }
         string readData();
+
+        Login connectionLogin;
     }
 }

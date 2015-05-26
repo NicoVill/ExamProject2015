@@ -15,6 +15,8 @@ namespace ExamProject2015
          public string userID { get; set; }
 
          int parentID { get; set; }
+
+         IFolder locationFolder;
         string readData();
 
     }

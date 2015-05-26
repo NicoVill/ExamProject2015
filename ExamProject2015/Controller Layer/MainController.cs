@@ -97,7 +97,7 @@ namespace ExamProject2015
                 ReturnList.Add(item);
                 foreach (var temp in GetSubDir(item.ID))
                 {
-                    ReturnList.Add(new Model_Layer.Folders(temp.ID, "-> " + temp.Name));
+                    ReturnList.Add(new Model_Layer.Folders(temp.ID, "-> " + temp.Name, Model_Layer.SessionData.usrName));
                 }
 
             }

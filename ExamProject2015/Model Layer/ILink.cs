@@ -12,6 +12,8 @@ namespace ExamProject2015
 
          string url { get; set; }
 
+         IFolder locationFolder;
+
         string getData();
     }
 }
