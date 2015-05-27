@@ -12,8 +12,6 @@ namespace ExamProject2015
 {
     public class DatabaseFacade
     {
-        public string username { get; set; }
-        public string password { get; set; }
 
         public int PrivLevel { get; set; }
 

@@ -19,12 +19,12 @@ namespace ExamProject2015
 
             string[] b = l.Split('\\');
             string c = "";
-            for (int i = 0; i < (b.Count() - 3); i++)
+            for (int i = 0; i < (b.Count() - 1); i++)
             {
                 c += b[i] + "\\";
             }
 
-            c += "tmp\\";
+            c += "temp\\";
 
             newLocationString = c;
 

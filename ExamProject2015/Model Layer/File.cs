@@ -55,19 +55,6 @@ namespace ExamProject2015
             }
         }
 
-        //public IFolder locationFolderFile
-        //{
-        //    get
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //    set
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
-
-
         public IFolder locationFolderFile
         {
             get

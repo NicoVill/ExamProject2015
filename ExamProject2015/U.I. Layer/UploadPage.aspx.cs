@@ -26,35 +26,44 @@ namespace ExamProject2015
 
         private void UploadFile()
         {
-            string a = HttpRuntime.AppDomainAppPath;
-            
-            string uploadLocation = UploadHelper.createUploadLocationString(a);
-            string Filename = FileUpload1.PostedFile.FileName;
-            string pathToCheck = uploadLocation + Filename;
-            
-
-            UploadHelper.checkIfFIleExists(uploadLocation, Filename);
-
-            if (UploadHelper.checkIfFIleExists(uploadLocation, Filename) == false)
-            {               
-                Label2.Text = "Der er allerede en fil med dette navn";
-            }
-            else
+            try
             {
-                Label2.Text = "Filen blev uploaded";
+                string a = HttpRuntime.AppDomainAppPath;
+
+                string uploadLocation = UploadHelper.createUploadLocationString(a);
+                string Filename = FileUpload1.PostedFile.FileName;
+                string pathToCheck = uploadLocation + Filename;
+
+
+                UploadHelper.checkIfFIleExists(uploadLocation, Filename);
+
+                if (UploadHelper.checkIfFIleExists(uploadLocation, Filename) == false)
+                {
+                    Label2.Text = "Der er allerede en fil med dette navn";
+                }
+                else
+                {
+                    Label2.Text = "Filen blev uploaded";
+                }
+
+                uploadLocation += Filename;
+                string givingFilename = txtb_FileName.Text;
+                FileUpload1.SaveAs(uploadLocation);
+
+
+                Stream fs = FileUpload1.PostedFile.InputStream;
+                string FileContent = FileUpload1.PostedFile.ContentType;
+
+                Label2.Text = UploadHelper.calcSize(FileUpload1.PostedFile.ContentLength);
+
+                Label1.Text = _cnt.UploadFile(Filename, uploadLocation, fs, FileContent, givingFilename, Model_Layer.SessionData.LatestFolderID);
             }
-
-            uploadLocation += Filename;
-            string givingFilename = txtb_FileName.Text;
-            FileUpload1.SaveAs(uploadLocation);
-
-
-            Stream fs = FileUpload1.PostedFile.InputStream;
-            string FileContent = FileUpload1.PostedFile.ContentType;
-
-            Label2.Text = UploadHelper.calcSize(FileUpload1.PostedFile.ContentLength);
-
-            Label1.Text = _cnt.UploadFile(Filename, uploadLocation, fs, FileContent, givingFilename, Model_Layer.SessionData.LatestFolderID);
+            catch (Exception ex)
+            {
+                Label1.Text = ex.ToString();
+                throw;
+            }
+            
         }
 
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
