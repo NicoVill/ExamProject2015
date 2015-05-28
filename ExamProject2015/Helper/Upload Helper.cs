@@ -19,7 +19,7 @@ namespace ExamProject2015
 
             string[] b = l.Split('\\');
             string c = "";
-            for (int i = 0; i < (b.Count() - 1); i++)
+            for (int i = 0; i < (b.Count() - 2); i++)
             {
                 c += b[i] + "\\";
             }

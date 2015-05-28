@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Login Side</title>
 </head>
 <body>
     <form id="form1" runat="server" >
@@ -23,8 +23,20 @@
             </p>
         <p>
             <asp:Button ID="btn_Login" runat="server" Text="Login" OnClick="btn_Login_Click" />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="lbl_msg" runat="server" Text="Test"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lbl_msg" runat="server" Text="Label"></asp:Label>
+            </p>
+        <p>
+            <asp:Label ID="Label4" runat="server" Text="Brugere der allerede er oprettede."></asp:Label>
+            </p>
+        <p>
+            &nbsp;
+            <asp:Label ID="Label1" runat="server" Text="Brugernavn: Test | Password 1234"></asp:Label>
+            </p>
+        <p>
+            <asp:Label ID="Label2" runat="server" Text="Brugernavn: Admin | Password 1234"></asp:Label>
+            </p>
+        <p>
+            <asp:Label ID="Label3" runat="server" Text="Brugernavn: Elev | Password 1234"></asp:Label>
             </p>
             </form>
 </body>

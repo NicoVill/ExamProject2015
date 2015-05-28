@@ -4,7 +4,8 @@
 	
 <html>
 <head>
-    <title>Awesome</title>
+    <title>Toftlund Distrikt Skole
+    </title>
     <link rel="stylesheet" href="Main.css">
 
 </head>
@@ -13,9 +14,12 @@
 
     <header>
 				<nav>
-				<h1>Awesome page</h1>
+				<h1>Hovede Side</h1>
 					<ul>
-						<li><a href="/Mainpage.aspx"></a>Home</li>
+						<li><asp:HyperLink id="hyperlink1" 
+                                 NavigateUrl="Mainpage.aspx"
+                                    Text="Home"
+                                runat="server"/> </li>
 						<li><a href="#"></a>Blog</li>
 						<li><a href="#"></a>About</li>
 						<li><a href="#"></a>Contact</li>
